@@ -1,0 +1,60 @@
+body {
+	background-image:  url("img/bknd_sliver2.gif");
+	overflow: auto;
+	padding: 0;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	color: #000000;
+	text-decoration: underline;
+}
+a img {
+	border: solid 1px #000000;
+}
+a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+a:visited img { border-color: #000000; }
+a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+a:active {
+	color: #000000;
+	text-decoration: underline;
+}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+p.mediadescription{
+	display: block;
+	margin: 0;
+}
+
+img.imgthumb {
+	width: 160px;
+}
+
+li {
+	margin-top: 1em;
+}
+
+td.gallery {
+	padding-bottom: 1em;
+	vertical-align: top;
+}
+
+.top {
+	font-weight: bold;
+	text-align: right;
+	font-size: 0.8em;
+	font-color: #000;
+	margin-top: 0;
+}
+
+

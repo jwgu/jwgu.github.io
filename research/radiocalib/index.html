@@ -1,0 +1,119 @@
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Radiometric Calibration From a Single Image</title>
+  <link rel="stylesheet" href="../../cave.css">
+</head>
+
+<body bgcolor=#ffffff>
+	<table width="982" height="100%" border="0" cellpadding=0 cellspacing=0 align="center">
+		<tr>
+			<td width="59" rowspan="3" align="left" valign="baseline"
+				background="../../img/left_side.gif">&nbsp;</td>
+			<td width="864" height="42" align="left" valign="baseline"
+				background="../../img/top_thin.gif">&nbsp;</td>
+			<td width="59" rowspan="3" align="left" valign="baseline"
+				background="../../img/right_side.gif">&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td height="100%" align="left" valign="baseline" bgcolor="#ffffff">
+				<div align="center">
+
+		<table border="0" width="709" cellspacing=10 cellpadding=0
+			bgcolor="#ffffff">
+		  <tbody>
+			  <tr><td>
+
+<center>
+<h1>Radiometric Calibration from a Single Image</h1>
+
+<a href="http://research.microsoft.com/%7Estevelin">Stephen Lin</a>,
+<a href="http://www.cis.rit.edu/people/faculty/jwgu">Jinwei Gu</a>,
+<a href="http://www.dh.aist.go.jp/members/shuntaro_e.php">Shuntaro Yamazaki</a> 
+and <a href="http://research.microsoft.com/%7Ehshum">Harry Shum</a>
+</center>
+
+<h3>Abstract</h3>
+
+Photometric methods in computer vision and graphics require
+calibration of the camera's radiometric response. Previous works
+have addressed this problem using multiple registered images captured
+under different camera exposure settings. In many instances, such an
+image set is not available. We propose a method that performs
+radiometric calibration from only a single image, based on measured RGB
+distributions at color edges. This technique automatically selects
+appropriate edge information for processing, and employs a Bayesian
+approach to compute the calibration. The optimal response curves are
+selected by minimizing the nonlinearity (i.e., the sum of the distances
+of the pixels on the edge patches to the straight line in RGB space)
+and maximizing the probability in the prior space. 
+Experiments have shown that accurate calibration results can be
+obtained using only a single input image, when the input images has
+enough edge pixels that cover a large range of the intensity spectrum.<br>
+
+<h3>Publication</h3>
+
+Stephen Lin, Jinwei Gu, Shuntaro Yamazaki, and Heung-Yeung Shum. "<a
+	href="../../pdfs/calib_cvpr04.pdf">Radiometric Calibration from a
+Single Image</a>". in Proc. of <i>IEEE Conference on Computer Vision and Pattern Recognition </i> (CVPR2004), vol.2, pp.938-945, 2004.
+<br>
+
+<p><h3>Basic Idea</h3>
+
+<h3>1. The image irradiances of the edge pixels are linear combinations of
+	the two image irradiance values of the two regions. After
+	sensored by the camera, the linearity will no longer be preserved
+	because of the nonlinear camera response.</h3>
+<center>
+<img alt="" src="../../img/radiocalib_big.jpg" align="middle"><br>
+</center>
+<h3>2. This fact can be used to solve for the inverse response function
+	g that can best recover the linearity on the edge pixels, which only
+	requires one single image as the input.</h3>
+<center>
+<img alt="" src="../../img/radiocalib2.jpg"><br>
+</center>
+
+
+<h3>Download</h3>
+
+Several of the image sets we used in our experiments can be downloaded
+here. The aperture to take these images is F8, the shutter speeds are:
+1/30, 1/15, 1/8, 1/4, 1/2 (stops). The estimation results of
+camera response for the duck example can be found <a href="duck_result.zip">here</a>.
+
+<p><center>
+<table border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td><a href="colorchecker.zip"><img alt="" src="../../img/radiocalib_d1.jpg"></a></td>
+      <td><a href="duck.zip"><img alt="" src="../../img/radiocalib_d2.jpg"></a></td>
+      <td><a href="book.zip"><img alt="" src="../../img/radiocalib_d3.jpg"></a></td>
+    </tr>
+
+    <tr>
+      <td align="center">28MB</td>
+      <td align="center">7MB</td>
+      <td align="center">4.4MB</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+
+<h3>Related Work</h3>
+<a href="http://research.microsoft.com/%7Estevelin">Stephen Lin</a> and Lei Zhang, "Determining the Radiometric
+Response Function from a Single Grayscale Image", <i>IEEE Conference on Computer Vision and Pattern Recognition 2005.</i>
+
+           </td></tr>
+		  </tbody>
+		</table>
+
+			</div>
+			</td>
+		</tr>
+	</table>
+  </center>
+
+</body>
+</html>
