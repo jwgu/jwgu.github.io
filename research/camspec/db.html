@@ -1,0 +1,83 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>RIDI | Projects: Camera Spectral Sensitivity Database</title>
+	<meta name="description" content="Camera Spectral Sensitivity Database">
+	<meta name="keyword" content="Computer Vision, RIDI, Information-Driven Imaging Lab, 
+	Center for Imaging Science,
+	Rochester Institute of Technology, Projects, Camera Spectral Sensitivity Database">
+	<link rel="stylesheet" href="../projects.css" type="text/css" />
+</head>
+
+<body bgcolor=#ffffff>
+	<table width="982" height="100%"  border="0" cellpadding=0 cellspacing=0 align="center">
+		<tr>
+			<td width="59" rowspan="3" align="left" valign="baseline" background="../bkgnd/left_side.gif">&nbsp;</td>
+			<td width="864" height="42" align="left" valign="baseline" background="../bkgnd/top_thin.gif"></td>
+			<td width="59" rowspan="3" align="left" valign="baseline" background="../bkgnd/right_side.gif">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="100%" align="left" valign="baseline" bgcolor="#ffffff">
+			<div align="center"><table width="709"  border="0" cellspacing="30" cellpadding="0">
+		
+				<tr>
+					<td><div align="center"><font size="+2">Camera Spectral Sensitivity Database</font></div></td>
+				</tr><tr>
+						<td 
+					><center><img src="img/camspec_database.png" width="700"></center></td></tr><tr><td>
+<p align='center'><a href='camspec_database.txt'>Database</a></p>
+<p align='center'><a href='camlist&equipment.txt'>Camera Info</a></p>
+<p>
+Camera spectral sensitivity functions relate scene radiance with captured RGB 
+triplets. They are important for many computer vision tasks that use color 
+information, such as multispectral imaging, and color constancy.</p>
+
+<p>We create a database of 28 cameras covering a variety of types. The database 
+contains the spectral sensitivity functions for 28 cameras, including 
+professional DSLRs, point-and-shoot, industrial and mobile phone camera. We use 
+a spectrometer PR655 from Photo Research Inc., a light source and monochrometer 
+combined with an integrating sphere to do the measurement. Each measurement 
+starts from wavelength 400nm to 720nm in an interval of 10nm. Measured Sensitivities are normalized to 1 for RGB channels seperately. The database is in the form 
+of a text file. Each entry starts with camera name and follows by measured 
+spectral sensitivities in red, green and blue channel.</p>
+</td></tr>
+				<tr>
+					<td><h3 id="Publications">Publications</h3>
+						<blockquote>
+				<p>Jun Jiang, Dengyu Liu, Jinwei Gu and Sabine S&uumlsstrunk. 
+<i><a 
+    href='camspec.pdf'>What is the Space of Spectral Sensitivity Functions for 
+    Digital Color Cameras?</a></i>. WACV 2013.<br><p>Jun Jiang, Dengyu Liu, Jinwei Gu and Sabine 
+S&uumlsstrunk.<i><a href='supp.pdf'>Supplementary 
+    Document</a></i> (with proof and other experimental details).<br>
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Software">Software</h3>
+						<blockquote>
+				<p><a href="css_code.zip"><b>Code for recovering camera spectral 
+    sensitivity from a single image</b></a></p>This demo MATLAB code shows the recovery of camera spectral 
+    sensitivity with a regular color checker from a single picture under unknown 
+    daylight. An example image captured by a Canon 60D (CR2 RAW format) is 
+    included. The measured camera spectral sensitivity for Canon 60D 
+	and measured daylight are also included for comparison.
+
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Related Project">Related Project</h3>
+						<blockquote>
+				<p><a href="http://www.cis.rit.edu/jwgu/research/camspec">What is the Space of Spectral Sensitivity Functions for Digital Color Cameras</a></p>
+
+						</blockquote>
+					</td>
+				</tr>
+				

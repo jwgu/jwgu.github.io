@@ -1,0 +1,249 @@
+
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>RIDI | Projects: What is the Space of Spectral Sensitivity Functions for Digital Color 
+Cameras</title>
+	<meta name="description" content="What is the Space of Spectral Sensitivity Functions for Digital Color 
+Cameras">
+	<meta name="keyword" content="Computer Vision, RIDI, Information-Driven Imaging Lab, 
+	Center for Imaging Science,
+	Rochester Institute of Technology, Projects, What is the Space of Spectral Sensitivity Functions for Digital Color 
+Cameras">
+	<link rel="stylesheet" href="../projects.css" type="text/css" />
+</head>
+
+<body bgcolor=#ffffff>
+	<table width="982" height="100%"  border="0" cellpadding=0 cellspacing=0 align="center">
+		<tr>
+			<td width="59" rowspan="3" align="left" valign="baseline" background="../bkgnd/left_side.gif">&nbsp;</td>
+			<td width="864" height="42" align="left" valign="baseline" background="../bkgnd/top_thin.gif"></td>
+			<td width="59" rowspan="3" align="left" valign="baseline" background="../bkgnd/right_side.gif">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="100%" align="left" valign="baseline" bgcolor="#ffffff">
+			<div align="center"><table width="709"  border="0" cellspacing="30" cellpadding="0">
+		
+				<tr>
+					<td><div align="center"><font size="+2">What is the Space of Spectral Sensitivity Functions for Digital Color 
+Cameras</font></div></td>
+				</tr><tr>
+						<td 
+					><center><img src="img/camspec_thumb.jpg" width="700"></center></td></tr><tr><td>
+<p>
+Camera spectral sensitivity functions relate scene radiance with captured RGB 
+triplets. They are important for many computer vision tasks that use color 
+information, such as multispectral imaging, color rendering, and color constancy. 
+In this paper, we aim to explore the space of spectral sensitivity 
+functions for digital color cameras. After collecting a database of 28 
+cameras covering a variety of types, we find this space convex and 
+two-dimensional. Based on this statistical model, we propose two methods to 
+recover camera spectral sensitivities using regular reflective color targets 
+(e.g., color checker) from a single image with and without knowing the 
+illumination. We show the proposed model is more accurate and robust for 
+estimating camera spectral sensitivities than other basis functions. We also 
+show two applications for the recovery of camera spectral sensitivities — 
+simulation of color rendering for cameras and computational color 
+constancy.</p></td></tr>
+				<tr>
+					<td><h3 id="Publications">Publications</h3>
+						<blockquote>
+				<p>Jun Jiang, Dengyu Liu, Jinwei Gu and Sabine Susstrunk. 
+<i><a 
+    href='camspec.pdf'>What is the Space of Spectral Sensitivity Functions for 
+    Digital Color Cameras?</a></i>. IEEE Workshop on the Applications of Computer Vision (WACV), 2013.<br><p>Jun Jiang, Dengyu Liu, Jinwei Gu and Sabine 
+Susstrunk.<i><a href='supp.pdf'>Supplementary 
+    Document</a></i> (with proof and other experimental details).<br>
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Images">Images</h3>
+				
+						<table border="0" cellpadding="0" cellspacing="6">
+				
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/measurementSetup.png"><img class="imgthumb" src="img/thumb_measurementSetup.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Experimental setup to obtain the groundtruth of spectral 
+    sensitivity:</strong>
+								<p class="mediadescription">we have measured the spectral sensitivity functions for 28 
+    cameras, including professional DSLRs, point-and-shoot, industrial and 
+    mobile cameras (i.e., Nokia N900), using a monochromator and a spectrometer 
+    PR655. At each wavelength, the camera spectral sensitivity in RGB channels 
+    is calculated by c(&lambda;) = d(&lambda;)/(r(&lambda;)t(&lambda;)), where d(&lambda;) is the raw data 
+    recorded by the camera, r(&lambda;) is the illuminant radiance measured by the 
+    spectrometer, and t(&lambda;) is the exposure time of the camera. All other settings 
+    (i.e., ISO and aperture) remained the same during the measurement for each 
+    camera. The procedure is repeated across the whole visible wavelength from 
+    400 to 720nm with an interval of 10nm.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/noiseDirectInversion.png"><img class="imgthumb" src="img/thumb_noiseDirectInversion.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>The need of statistics prior of camera spectral sensitivities:</strong>
+								<p class="mediadescription">It is known that common color targets such as a colorchecker cannot 
+	be used directly to recover camera spectral sensitivities under 
+	conventional illumination (e.g., daylight, tungsten, fluorescent).
+	This is because the intrinsic dimensionality of real-world objects' reflectance is about 8, which is less than the number of unknowns in camera spectral sensitivities. 
+	Direct inversion is not reliable, even with a small amount of 
+		noise (1%).</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/sortedLutherCondition.png"><img class="imgthumb" src="img/thumb_sortedLutherCondition.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Luther condition evaluation:</strong>
+								<p class="mediadescription">A camera satisfies the Luther condition if 
+    its spectral sensitivity function is a linear transformation of the 
+    CIE-1931 2-degree color matching function. The Luther condition can be 
+    evaluated by the RMS error between C2deg and TC, C2deg are the CIE-1931 
+    2-degree color matching functions, and C are the measured camera spectral 
+	sensitivities. Color difference (CIEDE00) is calculated between C2deg and TC 
+	under CIE D65 illuminant and the 1269 Munsell color chips. Ideally, 
+    spectral RMS and color differences are zero if a camera perfectly satisfies 
+    the Luther condition. Overall, most cameras have a deviation from the 
+    Luther condition, especially for the two industrial cameras.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/cameraEVSpace.png"><img class="imgthumb" src="img/thumb_cameraEVSpace.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Principal components of camera spectral sensitivities:</strong>
+								<p class="mediadescription">The principal 
+    components of camera spectral sensitivities. The three columns represent 
+    the R/G/B channels, respectively. We performed PCA on Canon cameras, Nikon 
+    cameras, and all 28 cameras. The 1st principal component accounts for over 
+    95% of total variance for all three channels, and the first two principal 
+    components accounts for over 97% of total variance. Thus, we model camera 
+    spectral sensitivity functions as two-dimensional functions.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/Canon60D_unknownDaylight.png"><img class="imgthumb" src="img/thumb_Canon60D_unknownDaylight.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>The recovery of camera spectral sensitivies of Canon 60D:</strong>
+								<p class="mediadescription">(a) The measured spectrum of a daylight. (b) The spectral reflectance of a 
+    color checker DC. (c) The captured image (glossy and duplicate patches are 
+    removed to avoid overweighting certain colors). (d) The recovered spectral 
+    sensitivities with known daylight spectrum. By using a daylight model, we 
+    can recover both the daylight spectrum (e) and the camera spectral 
+    sensitivities (f). The subscripts m and e in (d) and (f) stand for the 
+    measured and estimated camera spectral sensitivities, respectively.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/recoveryUsingOtherBasis_8.png"><img class="imgthumb" src="img/thumb_recoveryUsingOtherBasis_8.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Comparison of recovered camera spectral sensitivies using 3 basis 
+    functions:</strong>
+								<p class="mediadescription">(a) Fourier basis, (b) polynomial basis, and (c) radial basis. 
+    The results are worse than that of using the PCA model. The subscripts m 
+    and e stand for the measured and estimated camera spectral sensitivities, 
+    respectively.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/renderCC_basisfun.png"><img class="imgthumb" src="img/thumb_renderCC_basisfun.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Comparison of four types of basis functions for modeling camera spectral 
+    sensitivity functions:</strong>
+								<p class="mediadescription">A -- PCA model, B -- Fourier basis, C -- radial basis and 
+    D -- polynomial basis with the ground truth (E). A color checker is rendered 
+    under D65 with camera spectral sensitiv- ities recovered using these basis 
+    functions, and converted to sRGB. The average color difference between the 
+    renderings (from A to D) and the ground truth (E) are 1.59, 3.54, 2.43 and 
+    7. The gain of the imaging system remains the same for all four basis 
+    functions.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/specImgRenderingDeltaE.png"><img class="imgthumb" src="img/thumb_specImgRenderingDeltaE.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Simulation of color rendering for cameras:</strong>
+								<p class="mediadescription">The images are rendered to 
+    sRGB based on the measured (top row) and estimated (bottom row) camera 
+    spectral sensitivities of Canon 60D. (a) face, (b) beads, and (c) peppers 
+    are from the multispectral image database [25]. The values in the 
+    parentheses are the average color difference (CIEDE00 [11]) between the 
+    bottom and top images in each column. For all three examples, the color 
+    difference is close to one, indicating a close color match.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/colorCorrection.png"><img class="imgthumb" src="img/thumb_colorCorrection.png" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Correction of images by Canon5D Mark II:</strong>
+								<p class="mediadescription">CC is put in the scene to 
+    locate the white point. The estimated camera spectral sensitivity of 
+    Canon5D Mark II is used to calculate T. Left column: The captured image; 
+Middle column: the corrected image based on T, and Right column: the corrected 
+    image by dividing the white point (without using T). The images are 
+    rendered in sRGB color space.</p>
+							</td>
+						</tr>
+					
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left"><h3 id="Slides">Slides</h3>
+						<blockquote>
+				<p><a href="">WACV 2013 Presentation (coming soon)</a></p>
+<p><a href="">WACV 2013 Poster (coming soon)</a></p>
+
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Software">Software</h3>
+						<blockquote>
+				<p><a href="http://www.cis.rit.edu/jwgu/research/camspec/db.html"><b>Database of camera 
+spectral sensitivity</b></a></p>The database includes the spectral sensitivity functions for 28 cameras, 
+    including professional DSLRs, point-and-shoot, industrial and mobile 
+    cameras. The measurement starts from 400nm to 720nm in an interval of 10nm. The database is in the 
+    form of a text file. Each entry starts with camera name and follows by 
+    measured spectral sensitivities in red, green and blue channel.
+<p><a href="css_code.zip"><b>Code for recovering camera spectral 
+    sensitivity from a single image</b></a></p>This demo MATLAB code shows the recovery of camera spectral 
+    sensitivity with a regular color checker from a single picture under unknown 
+    daylight. An example image captured by a Canon 60D (CR2 RAW format) is 
+    included. The measured camera spectral sensitivity for Canon 60D 
+	and measured daylight are also included for comparison.
+
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Related Project">Related Project</h3>
+						<blockquote>
+				<p><a href="http://www.cvl.iis.u-tokyo.ac.jp/~zhao/database.html">Spectral Sensitivity Measurement, CVL, University of Tokyo</a></p>
+
+						</blockquote>
+					</td>
+				</tr>
+				

@@ -1,0 +1,283 @@
+
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>RIDI | Projects: Multiplexed Illumination for Scene Recovery<br>
+in the Presence of Global Illumination</title>
+	<meta name="description" content="Multiplexed Illumination for Scene Recovery<br>
+in the Presence of Global Illumination">
+	<meta name="keyword" content="Computer Vision, RIDI, Information-Driven Imaging Lab, 
+	Center for Imaging Science,
+	Rochester Institute of Technology, Projects, Multiplexed Illumination for Scene Recovery<br>
+in the Presence of Global Illumination">
+	<link rel="stylesheet" href="../projects.css" type="text/css" />
+</head>
+
+<body bgcolor=#ffffff>
+	<table width="982" height="100%"  border="0" cellpadding=0 cellspacing=0 align="center">
+		<tr>
+			<td width="59" rowspan="3" align="left" valign="baseline" background="../bkgnd/left_side.gif">&nbsp;</td>
+			<td width="864" height="42" align="left" valign="baseline" background="../bkgnd/top_thin.gif"></td>
+			<td width="59" rowspan="3" align="left" valign="baseline" background="../bkgnd/right_side.gif">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="100%" align="left" valign="baseline" bgcolor="#ffffff">
+			<div align="center"><table width="709"  border="0" cellspacing="30" cellpadding="0">
+		
+				<tr>
+					<td><div align="center"><font size="+2">Multiplexed Illumination for Scene Recovery<br>
+in the Presence of Global Illumination</font></div></td>
+				</tr><tr>
+						<td 
+					><center><img src="img/comp.gif" width="700"></center></td></tr><tr><td>
+<p>Global illumination effects such as inter-reflections and subsurface
+scattering result in systematic, and often significant errors in
+scene recovery using active illumination. Recently, it was shown
+that the direct and global components could be separated efficiently
+for a scene illuminated with a single light source. In this paper,
+we study the problem of direct-global separation for multiple light
+sources. We derive a theoretical lower bound for the number of
+required images, and propose a multiplexed illumination scheme. We
+analyze the signal-to-noise ratio (SNR) characteristics of the
+proposed illumination multiplexing method in the context of
+direct-global separation. We apply our method to several scene
+recovery techniques requiring multiple light sources, including
+shape from shading, structured light 3D scanning, photometric
+stereo, and reflectance estimation. Both simulation and experimental
+results show that the proposed method can accurately recover scene
+information with fewer images compared to sequentially separating
+direct-global components for each light source.</p>
+
+<p>This project is done in collaboration with Toshihiro Kobayashi at Canon Inc., 
+<a href="http://www.cs.columbia.edu/~mohitg">Mohit Gupta</a>, and <a
+href="http://www.cs.columbia.edu/~nayar">Shree K. Nayar</a> at Columbia
+University.</p></td></tr>
+				<tr>
+					<td><h3 id="Publications">Publications</h3>
+						<blockquote>
+				<p>Jinwei Gu, Toshihiro Kabayashi, Mohit Gupta, and 
+	Shree K. Nayar. <i><a href='demux_final.pdf'>Multiplexed Illumination for Scene Recovery
+in the Presence of Global Illumination</a></i>. ICCV 2011.<br><p>Jinwei Gu, Toshihiro Kabayashi, Mohit Gupta, and 
+	Shree K. Nayar.<i><a href='demux_tech.pdf'>Supplementary Document</a></i> (with proof and other experimental 
+	details).<br>
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Images">Images</h3>
+				
+						<table border="0" cellpadding="0" cellspacing="6">
+				
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/02_simu2.jpg"><img class="imgthumb" src="img/02_simu2_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Simulation 
+	of Frequency Modulated
+	Multiplexing:</strong>
+								<p class="mediadescription">We perform a simulation using radiosity method to 
+	verify the accuracy of the proposed method. (a) The scene is a 2D Lambertian half circle, 
+	illuminated by two
+	directional light sources. (b) The form factor matrix for the scene,
+	used to simulate inter-reflections with radiosity. 2x2+1=5 images (with
+	0.5% Gaussian additive noise) are simulated and used for 
+	direct-global separation.
+	(c) The two estimated direct
+	components and (d) the estimated sum of the two global components
+	(solid lines) accurately match the ground truth
+	(dotted lines)</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/04_vgroove4a.jpg"><img class="imgthumb" src="img/04_vgroove4a_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Scene Recovery for a V-groove:</strong>
+								<p class="mediadescription">Here we show the scene recovery 
+	results for a V-groove in several applications.
+	(a) shape from shading (one source); (b)
+	intensity ratio (two sources); (c) phase
+	shifting (three sources); and (d) photometric
+	stereo (three sources). <b>Row 1</b>: One of the captured images
+	without direct-global separation.
+	<b>Row 2</b>: The separated direct component using our method.
+	<b>Row 3</b>: Recovered depth profiles. In (d), we also show the 
+	recovered
+	surface normals (as needle maps) and albedo maps obtained with and 
+	without direct-global separation.
+	Our method faithfully recovers scene information, while requiring 
+	fewer images
+	than applying the separation method [Nayar 2006] sequentially.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/10_input4.jpg"><img class="imgthumb" src="img/10_input4_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Projected Light Patterns and Captured Images:</strong>
+								<p class="mediadescription">Here we show the projected 
+	light patterns and captured images for 
+	phase shifting on a v-groove.
+	(a) The amplitudes 
+    for the three (collocated) light sources,
+    implemented with a low frequency (1 cycle/image width) to avoid unwrapping.
+    (b) We modulate the three light sources with high frequency
+    sinusoids shifting over time and simultaneously project the modulated light
+    patterns. (c) The corresponding captured input images for the
+    proposed method. Depth estimation results are given in
+	the above image.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/07_bowl3.jpg"><img class="imgthumb" src="img/07_bowl3_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>BRDF and Surface Normal Estimation of a Shiny
+    Cake Mold:</strong>
+								<p class="mediadescription">In this example, we used N=9 lights to recover the BRDF 
+	and surface normal map for a concave, shiny cake mold (shown as 
+	inset on the top left corner). We compared three methods: no
+    direct-global separation, the conventional method (ie, sequential separation
+    with a shifting checkerboard) [Nayar, 2006], and our
+    proposed method.  <b>Column 1</b>: One of the direct
+    components (for no separation, it is one of the captured image).
+    <b>Column 2</b>: Recovered surface normal map (color coded).
+    <b>Column 3</b>: Estimated BRDF (rendered as a sphere under
+    natural environment lighting). <b>Column 4</b>: Rendered images with the estimated BRDF and
+    surface normals. <b>Column 5</b>: Recovered depth for
+	the selected region (red rectangle).</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/08_banana.jpg"><img class="imgthumb" src="img/08_banana_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Recovery of Surface Normal and Depth of a Banana:</strong>
+								<p class="mediadescription">Recovery of surface normal and depth of a banana using
+    photometric stereo (N=3).} (a) One of the three captured
+    images without direct-global separation. (b) The corresponding direct
+    illumination separated with the proposed method.
+    (c) Ground truth depth map estimated by the sequential separation with
+    a shifting checkerboard pattern [Nayar 2006]
+    (3x25=75 images). <b>Row 2</b>: Results without
+    direct-global separation --- (d) recovered normals, (e) estimated
+    depth map, and (f) depth error ((e)-(c)). <b>Row 3</b>: Results
+    of our proposed method (2x3+1=7 images), where (i) depth
+    error is (h)-(c). Without separation, there is an average of 19%
+    error in the recovered depth; with our method, it's only 4%.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/09_room3.jpg"><img class="imgthumb" src="img/09_room3_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Depth Recovery of a Room in a Pop-up Book using Phase
+	Shifting:</strong>
+								<p class="mediadescription">In this example, we recover the depth of a room in 
+	a pop-up book with phase shifting (N=3). (a) The scene exhibits
+	strong inter-reflections. (b) The corresponding
+	direct component, separated with the proposed method. (c) Ground
+	truth depth measured by scanning a single stripe of light. (d)(e)(f) 
+	Recovered depth maps for three methods:
+	no direct-global separation, the sequential separation
+	method [Nayar 2006], and our proposed method. (g)(h)
+	Depth error maps computed using the ground truth. (i) Rendering of 
+	(f) for a different view.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/03_snr_curve2.jpg"><img class="imgthumb" src="img/03_snr_curve2_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Signal-to-Noise Ratio (SNR) Characteristics of the
+	Proposed Method:</strong>
+								<p class="mediadescription">This figure shows the SNR gain of the proposed 
+	method with respect to the
+	sequential separation [Nayar 2006] for a variety of photo
+	noise to read noise ratios.  We assume a Gaussian model for
+	both the photon noise and the
+	read noise.  The x-axis is the ratio between the standard deviation 
+	of the photon noise (sigma_p) and that of the read noise (sigma_r).
+	The y-axis is the SNR gain of the proposed
+	method with respect to the sequential
+	separation method.  The red dot-dash line is the theoretical
+	result, and the blue solid line is the simulation result (for =30$
+	light sources). As expected, the SNR gain
+	 is \sqrt{2N/3} if the read noise dominates, and
+	it reduces as the photon noise increases, approaching the asymptotic
+	value of 0.83.</p>
+							</td>
+						</tr>
+					
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="img/cb_vs_sn.jpg"><img class="imgthumb" src="img/cb_vs_sn_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>Checkerboard vs. Sinusoid Patterns for Sequential Separation:</strong>
+								<p class="mediadescription">In [Nayar 2006], they proposed to either use three 
+	sinusoids or use multiple shifting checkerboard (typically 25 
+	images) for direct/global separation. Although using sinsuoids 
+	require only 3 images per light, due to image noises and 
+	quantization errors and imperfections in projectors, it is prone to 
+	artifacts. Here we show an example of photometric stereo (N=3) on a concave bowl.
+	The separated direct illumination are shown here. The sequential 
+	separation using sinusoid patterns needs 9 images, with noticable 
+	vertical stripe artifacts (and also in the recovered surface normal 
+	map). Using checkerboard patterns needs 25x3=75 images with higher 
+	quality results. <b>Our proposed method, using only 2x3+1=7 images, 
+	can achieve better quality results</b>.</p>
+							</td>
+						</tr>
+					
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Video">Video</h3>
+				
+						<em>If you are having trouble viewing these <b>.mp4</b> videos in your browser, please save them to your computer first (by right-clicking and choosing "Save Target As..."), and then open them.</em><br><br>
+					
+						<table border="0" cellpadding="0" cellspacing="6">
+				
+						<tr>
+							<td align="left" valign="middle" width="171"><a href="supp_final.mp4"><img class="imgthumb" src="img/demux_thumb.jpg" border="1" /></a></td>
+							<td align="left" valign="middle" width="10">&nbsp;</td>
+							<td align="left" valign="middle" width="512">
+								<strong>ICCV 2011 Supplementary Video:</strong>
+								<p class="mediadescription">This video include more experimental results. (With narration, 20MB)</p>
+							</td>
+						</tr>
+					
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left"><h3 id="Slides">Slides</h3>
+						<blockquote>
+				<p><a href="demux_v08.pptx">ICCV 2011 presentation</a></p>
+
+						</blockquote>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">
+						<h3 id="Related Projects">Related Projects</h3>
+						<blockquote>
+				<p><a href="http://www.cs.columbia.edu/CAVE/projects/separation/">Direct/Global Separation</a></p>
+<p><a href="http://www.cs.columbia.edu/CAVE/projects/multiplexed/">Multiplexed Illumination</a></p>
+
+						</blockquote>
+					</td>
+				</tr>
+				
