@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="../cave.css" type="text/css" />
+    <title>CSCI3260: Principles of Computer Graphics (Fall 2023)</title>
+</head>
+
+<body bgcolor="#ffffff">
+    <table width="982" border="0" cellpadding=0 cellspacing=0 align="center">
+
+		<tr>
+			<td width="59" rowspan="3" align="left" valign="baseline" 
+				style="background-image: url(../img/left_side.gif);">&nbsp;</td>
+			<td width="864" height="42" align="left" valign="baseline"
+				style="background-image: url(../img/top_thin.gif);">&nbsp;</td>
+			<td width="59" rowspan="3" align="left" valign="baseline" 
+				style="background-image: url(../img/right_side.gif);">&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td height="100%" align="left" valign="baseline" bgcolor="#ffffff">
+				<div align="left">
+
+<div id="toptitle">
+<h1>CSCI3260: Principles of Computer Graphics (Fall 2023)</h1>
+</div>
+<h2>Course Description</h2>
+<p>Computer graphics is a technology that generates and manipulate images
+on a computer screen, with wide applications in movies, games, visual
+simulation, virtual reality and augmented reality, product design and
+visualization, human-computer interaction, and so on. This course
+introduces fundamental principles, algorithms, and techniques in
+computer graphics. Topics include graphics hardware and interaction
+devices, transformation of coordination systems, projections,
+rasterization pipeline, hidden surface removal, texture mapping,
+sampling and antialiasing, modeling 3D curves and surfaces, illumination
+models and shading, surface materials, raytracing, global illumination,
+volumetric rendering, and computer animation. 
+</p>
+<p>In CSCI3260, students will learn to 
+</p>
+<ul>
+<li><p>Build a solid mathematical foundation of core concepts and algorithms in computer graphics.
+</p>
+</li>
+<li><p>Implement interesting, complex 3D scenes with realistic rendering and user interaction in a computer graphics system.
+</p>
+</li>
+<li><p>Develop a broad knowledge of computer graphics principles and applications.
+</p>
+</li>
+</ul>
+<h2>Course Information</h2>
+<p>Lectures: 
+</p>
+<ul>
+<li><p>Tuesdays 10:30am-12:15pm LSK LT1
+</p>
+</li>
+<li><p>Thursdays 11:30am-12:15pm MMW LT2
+</p>
+</li>
+</ul>
+<p>Tutorials:
+</p>
+<ul>
+<li><p>Mondays 3:30pm-4:15pm SC LG23
+</p>
+</li>
+<li><p>Thursdays 5:30pm-6:15pm SC LG23
+</p>
+</li>
+</ul>
+<p>Instructor: Prof. Jinwei Gu. 
+</p>
+<p>TA: Yitong Jiang
+</p>
+<p>Course notes and assignments are available at Blackboard <a href="http://blackboard.cuhk.edu.hk" target=&ldquo;blank&rdquo;>http://blackboard.cuhk.edu.hk</a>
+</p>
+<h2>Reference Books</h2>
+<ul>
+<li><p>(FCG) Fundamentals of Computer Graphics, by Steve Marschner, Peter Shirley. (5th Edition) Available online in CUHK Library <a href="https://learning-oreilly-com.easyaccess2.lib.cuhk.edu.hk/library/view/fundamentals-of-computer/9781000426359/" target=&ldquo;blank&rdquo;>https://learning-oreilly-com.easyaccess2.lib.cuhk.edu.hk/library/view/fundamentals-of-computer/9781000426359/</a>
+</p>
+</li>
+<li><p>(PBRT) Physically Based Rendering: From Theory to Implementation, by Matt Pharr, Wenzel Jakob, and Greg Humphreys. Available online. <a href="https://www.pbrt.org" target=&ldquo;blank&rdquo;>https://www.pbrt.org</a>
+</p>
+</li>
+<li><p>(LO) Learning OpenGL: Learn Modern OpenGL Graphics Programming in a Step-by-Step Fashion, by Joey de Vries. <a href="https://learnopengl.com" target=&ldquo;blank&rdquo;>https://learnopengl.com</a>
+</p>
+</li>
+</ul>
+<h2>Tentative Schedule</h2>
+<p>
+<table> 
+<tr>
+<td>Week</td>
+<td>Date</td>
+<td>Lecture</td>
+<td>Reading</td>
+<td>HW & Exam</td>
+</tr>
+<tr>
+<td rowspan="2">1</td>
+<td>Sept 5</td>
+<td>Course Introduction and Overview</td>
+<td>FCG Ch.1, PBRT Ch.1 </td>
+<td></td>
+</tr>
+<tr>
+<td>Sept 7</td>
+<td>Displays, Colors and Images</td>
+<td>FCG Ch.3, Ch.18.1, Ch.18.2</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">2</td>
+<td>Sept 12</td>
+<td>Basic 2D and 3D Math, Transformations</td>
+<td>FCG Ch.2, PBRT Ch.2</td>
+<td>HW1 out</td>
+</tr>
+<tr>
+<td>Sept 14</td>
+<td>Graphics Primitives and Hierarchical Modeling</td>
+<td>FCG Ch.6, Ch.7</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">3</td>
+<td>Sept 19</td>
+<td>Camera Projections</td>
+<td>FCG Ch.8</td>
+<td></td>
+</tr>
+<tr>
+<td>Sept 21</td>
+<td>View Frustum, Interactive 3D Control</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">4</td>
+<td>Sept 26</td>
+<td>Rasterization</td>
+<td>FCG Ch.9, Ch.17</td>
+<td>HW2 out</td>
+</tr>
+<tr>
+<td>Sept 28</td>
+<td>Hidden Surface Removal</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">5</td>
+<td>Oct 3</td>
+<td>Lighting and Shading</td>
+<td>FCG Ch.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Oct 5</td>
+<td>Texture Mapping (1)</td>
+<td>FCG Ch.11</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">6</td>
+<td>Oct 10</td>
+<td>Texture Mapping (2)</td>
+<td>PBRT Ch.10</td>
+<td>HW3 out</td>
+</tr>
+<tr>
+<td>Oct 12</td>
+<td>Review Session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">7</td>
+<td>Oct 17</td>
+<td><b>Midterm</b></td>
+<td></td>
+<td>Midterm</td>
+</tr>
+<tr>
+<td>Oct 19</td>
+<td>3D Curves and Surfaces (1)</td>
+<td>FCG Ch.15</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">8</td>
+<td>Oct 24</td>
+<td>3D Curves and Surfaces (2)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Oct 26</td>
+<td>Mesh Operations</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">9</td>
+<td>Oct 31</td>
+<td>Radiometry</td>
+<td>FCG Ch.14.6, PBRT Ch.5</td>
+<td>HW4 out</td>
+</tr>
+<tr>
+<td>Nov 2</td>
+<td>BRDF and Materials</td>
+<td>FCG Ch 14.9, PBRT Ch.8, Ch.9</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">10</td>
+<td>Nov 7</td>
+<td>Ray Tracing</td>
+<td>FCG Ch.4</td>
+<td></td>
+</tr>
+<tr>
+<td>Nov 9</td>
+<td>Ray Tracing Acceleration</td>
+<td>PBRT Ch.4</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">11</td>
+<td>Nov 14</td>
+<td>Distributed Ray Tracing</td>
+<td>FCG Ch.13, Ch.14.10</td>
+<td></td>
+</tr>
+<tr>
+<td>Nov 16</td>
+<td>Global Illumination</td>
+<td>PBRT Ch.13, Ch.14</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">12</td>
+<td>Nov 21</td>
+<td>Volumetric Rendering</td>
+<td>FCG Ch.16.1, Ch.16.2</td>
+<td></td>
+</tr>
+<tr>
+<td>Nov 23</td>
+<td>Computer Animation</td>
+<td>FCG Ch.16.3, Ch.16.4</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">13</td>
+<td>Nov 28</td>
+<td>Neural Network for Computer Graphics</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nov 30</td>
+<td>Review Session</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+</p>
+<h2>Tutorial Sessions</h2>
+<p>In addition to regular lectures, this class will also have weekly
+tutorial sessions. The tutorial sessions will be used mostly to review
+and clarify the programming assignments, introduce supplement materials
+of the lectures, and answer questions from students. 
+</p>
+<h2>Course Grades and Assignment Policy</h2>
+<p>The final grade is based on four programming assignments, one mid-term
+exam, and one final exam. Each assignment is 15%, the midterm exam is
+20%, and the final exam is 20%. For each assignment, there are also
+optional bonus points (up to 20% of its total grade).
+</p>
+<p>All assignments are due on 11:59pm (HK Time) on the due date. In total
+there are 4 late days to handle unexpected circumstances (e.g.,
+sickness, personal crisis, family problems). If you use up the 4 late
+days, we will allow late submissions for up to 24 hours, with a 20%
+point penalty. No late submissions after 24 hours are allowed, and zero
+marks will be given in that case. All the assignments will be submitted
+via Blackboard. More detailed instructions for submission will be
+provided along with each assignment.
+</p>
+<p>Students are welcome to discuss their partial solutions and questions
+with course staff members during the tutorial sessions, in office hours,
+or via Blackboard forum. Students are also permitted to discuss common
+concerns with classmates, but these discussions must be kept at a
+general level, without exposing their solutions or source code. 
+</p>
+<p>Finally, please do not publish any questions or solutions of the
+assignments and the exams, e.g., Github or a publicly accessible web
+page. This is a violation of the basic Rights, Rules, Responsibilities
+of members of the University community.  
+</p>
+<h2>Academic Honesty</h2>
+<p>Plagiarism, including copying any parts of code or solutions from your
+classmates, or releasing your code for others to copy, or copying during
+the exams, is strictly prohibited and will be treated very seriously. If
+found responsible, the typical penalty is an F as a course grade plus
+whatever penalty that the university imposes. If you have any doubts,
+please read the academic honesty guidelines from the university(<a href="https://www.cuhk.edu.hk/policy/academichonesty/" target=&ldquo;blank&rdquo;>https://www.cuhk.edu.hk/policy/academichonesty/</a>) 
+and the academic honesty guidelines from the Faculty of Engineering
+(<a href="https://www.erg.cuhk.edu.hk/erg/sites/default/files/Guidelines_to_Academic_Honesty.pdf" target=&ldquo;blank&rdquo;>https://www.erg.cuhk.edu.hk/erg/sites/default/files/Guidelines_to_Academic_Honesty.pdf</a>), 
+or ask the instructor. 
+</p>
+<h2>Acknowledgement</h2>
+<p>Some of the materials in the lecture slides of this course is built based on similar courses taught by the following professors:
+</p>
+<ul>
+<li><p>Prof. Pheng Ann Heng (CUHK) 
+</p>
+</li>
+<li><p>Prof. Ren Ng and Prof. James F.O'Brien (UC Berkley)
+</p>
+</li>
+<li><p>Prof. Ravi Ramamoorthi (UCSD)
+</p>
+</li>
+<li><p>Prof. Marc Levoy (Stanford)
+</p>
+</li>
+<li><p>Prof. Felix Haide (Princeton)
+</p>
+</li>
+<li><p>Prof. Steve Marschner (Cornell)
+</p>
+</li>
+</ul>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
