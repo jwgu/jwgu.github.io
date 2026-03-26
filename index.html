@@ -9,166 +9,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --text: #1a1a1a;
-      --muted: #555;
-      --accent: #2563eb;
-      --green: #059669;
-      --purple: #7c3aed;
-      --red: #dc2626;
-      --orange: #d97706;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-      --bg2: #f9fafb;
-      --gap: 2.5rem;
+      --text: #1a1a1a; --muted: #555; --accent: #2563eb;
+      --green: #059669; --purple: #7c3aed; --red: #dc2626;
+      --orange: #d97706; --teal: #0891b2;
+      --border: #e5e7eb; --bg: #fff; --bg2: #f9fafb;
+      --nv: #76b900; --gap: 2.5rem;
     }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--text);
-      background: var(--bg);
-    }
-
+    body { font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.65; color: var(--text); background: var(--bg); }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
-    .container { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
 
     /* ── Profile ── */
-    .profile {
-      display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: var(--gap);
-    }
-    .profile-photo {
-      flex-shrink: 0; width: 150px; height: 150px; border-radius: 50%;
-      object-fit: cover; object-position: top; border: 3px solid var(--border);
-    }
-    .profile-info h1 {
-      font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.2rem;
-    }
-    .profile-info .title { font-size: 0.95rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.5; }
-    .profile-info .bio-short { font-size: 0.925rem; color: var(--text); max-width: 560px; }
-    .profile-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
-    .profile-links a {
-      font-size: 0.8rem; font-weight: 500; color: var(--accent);
-      border: 1px solid var(--accent); border-radius: 4px; padding: 0.15rem 0.55rem; white-space: nowrap;
-    }
-    .profile-links a:hover { background: var(--accent); color: #fff; text-decoration: none; }
+    .profile { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: var(--gap); }
+    .profile-photo { flex-shrink: 0; width: 148px; height: 148px; border-radius: 50%; object-fit: cover; object-position: top; border: 3px solid var(--border); }
+    .profile-info h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
+    .profile-info .title { font-size: 0.93rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.5; }
+    .profile-info .bio-short { font-size: 0.915rem; max-width: 570px; }
+    .links-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
+    .links-row a { font-size: 0.78rem; font-weight: 500; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0.13rem 0.5rem; white-space: nowrap; }
+    .links-row a:hover { background: var(--accent); color: #fff; text-decoration: none; }
 
-    /* ── Section headings ── */
-    .section-title {
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 0.45rem;
-      margin-bottom: 1.25rem; margin-top: var(--gap);
-    }
+    /* ── Section heading ── */
+    .sec { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; margin: var(--gap) 0 1.2rem; }
 
-    /* ── Featured: Cosmos ── */
-    .featured-card {
+    /* ── Research pillars ── */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .pillar { border-radius: 10px; padding: 1.2rem 1.4rem; color: #fff; }
+    .pillar.cosmos { background: linear-gradient(135deg, #0f172a, #1e3a5f); }
+    .pillar.imaging { background: linear-gradient(135deg, #1a3a2a, #0d4429); }
+    .pillar h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .pillar p { font-size: 0.845rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+
+    /* ── Cosmos journey timeline ── */
+    .cosmos-banner {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-      border-radius: 10px; padding: 1.5rem 1.75rem; color: #e2e8f0;
-      display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1rem;
+      border-radius: 10px; padding: 1.5rem 1.75rem; margin-bottom: 1.1rem;
+      display: flex; gap: 1.5rem; align-items: flex-start;
     }
-    .featured-card img {
-      width: 140px; height: 90px; object-fit: cover; border-radius: 6px; flex-shrink: 0;
-    }
-    .badge {
-      display: inline-block; background: #76b900; color: #000;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
-      padding: 0.1rem 0.5rem; border-radius: 3px; margin-bottom: 0.4rem;
-    }
-    .featured-card h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
-    .featured-card p { font-size: 0.85rem; line-height: 1.5; color: #94a3b8; margin-bottom: 0.6rem; }
-    .featured-card .links a {
-      font-size: 0.8rem; color: #76b900; border: 1px solid #76b900;
-      border-radius: 3px; padding: 0.1rem 0.45rem; margin-right: 0.4rem; display: inline-block; margin-bottom: 0.2rem;
-    }
-    .featured-card .links a:hover { background: #76b900; color: #000; text-decoration: none; }
+    .cosmos-banner img { width: 140px; height: 88px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+    .cosmos-banner .badge { display: inline-block; background: var(--nv); color: #000; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.1rem 0.5rem; border-radius: 3px; margin-bottom: 0.4rem; }
+    .cosmos-banner h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
+    .cosmos-banner p { font-size: 0.845rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0.6rem; }
+    .nv-links a { font-size: 0.78rem; color: var(--nv); border: 1px solid var(--nv); border-radius: 3px; padding: 0.08rem 0.42rem; margin-right: 0.35rem; display: inline-block; margin-bottom: 0.2rem; }
+    .nv-links a:hover { background: var(--nv); color: #000; text-decoration: none; }
 
-    /* ── Product Highlights ── */
+    /* journey pills */
+    .journey { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+    .jpill { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 0.2rem 0.75rem; color: #e2e8f0; font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; }
+    .jpill .date { color: var(--nv); font-size: 0.7rem; font-weight: 600; }
+
+    /* ── Product cards ── */
     .product-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
-    .product-card {
-      background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
-      padding: 1rem 1.1rem; position: relative; overflow: hidden;
-    }
-    .product-card .prod-icon {
-      font-size: 1.4rem; margin-bottom: 0.4rem; display: block;
-    }
-    .product-card .prod-name {
-      font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem;
-    }
-    .product-card .prod-org {
-      font-size: 0.75rem; color: var(--orange); font-weight: 600; margin-bottom: 0.35rem;
-    }
-    .product-card .prod-desc {
-      font-size: 0.82rem; color: var(--muted); line-height: 1.45;
-    }
-    .product-card .prod-links { margin-top: 0.5rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .product-card .prod-links a {
-      font-size: 0.75rem; color: var(--accent);
-      border: 1px solid var(--border); border-radius: 3px; padding: 0.08rem 0.4rem;
-    }
-    .product-card .prod-links a:hover { border-color: var(--accent); text-decoration: none; }
-
-    /* ── Career ── */
-    .career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
-    .career-item {
-      background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.65rem 1rem;
-    }
-    .career-item .period { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
-    .career-item .role { font-size: 0.88rem; font-weight: 600; color: var(--text); }
-    .career-item .org { font-size: 0.82rem; color: var(--accent); }
+    .pcard { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
+    .pcard .icon { font-size: 1.3rem; margin-bottom: 0.35rem; }
+    .pcard .pname { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.18rem; }
+    .pcard .porg { font-size: 0.72rem; color: var(--orange); font-weight: 600; margin-bottom: 0.3rem; }
+    .pcard .pdesc { font-size: 0.815rem; color: var(--muted); line-height: 1.45; }
+    .pcard .pl { margin-top: 0.45rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .pcard .pl a { font-size: 0.73rem; color: var(--accent); border: 1px solid var(--border); border-radius: 3px; padding: 0.06rem 0.38rem; }
+    .pcard .pl a:hover { border-color: var(--accent); text-decoration: none; }
 
     /* ── Publications ── */
-    .year-label {
-      font-size: 0.78rem; font-weight: 700; color: var(--muted); letter-spacing: 0.06em;
-      text-transform: uppercase; margin: 1.5rem 0 0.75rem;
-    }
-    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-    .pub-item { display: flex; gap: 1.1rem; align-items: flex-start; }
-    .pub-thumb {
-      flex-shrink: 0; width: 108px; height: 68px; object-fit: cover;
-      border-radius: 4px; background: var(--bg2); border: 1px solid var(--border);
-    }
-    .thumb-blank {
-      flex-shrink: 0; width: 108px; height: 68px; border-radius: 4px;
-      background: var(--bg2); border: 1px solid var(--border);
-    }
-    .pub-title { font-weight: 500; margin-bottom: 0.12rem; line-height: 1.4; font-size: 0.915rem; }
-    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.08rem; }
-    .pub-venue { font-size: 0.82rem; font-weight: 600; color: var(--green); }
-    .pub-venue.top { color: var(--purple); }
-    .pub-venue .hl { color: var(--red); font-weight: 400; }
-    .pub-links { margin-top: 0.25rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
-    .pub-links a {
-      font-size: 0.75rem; color: var(--muted);
-      border: 1px solid var(--border); border-radius: 3px; padding: 0.06rem 0.38rem;
-    }
-    .pub-links a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .yl { font-size: 0.75rem; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin: 1.4rem 0 0.7rem; }
+    .pubs { display: flex; flex-direction: column; gap: 0.95rem; }
+    .pub { display: flex; gap: 1.05rem; align-items: flex-start; }
+    .thumb { flex-shrink: 0; width: 106px; height: 66px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); background: var(--bg2); }
+    .blank { flex-shrink: 0; width: 106px; height: 66px; border-radius: 4px; border: 1px solid var(--border); background: var(--bg2); }
+    .pt { font-weight: 500; margin-bottom: 0.1rem; line-height: 1.38; font-size: 0.905rem; }
+    .pa { font-size: 0.81rem; color: var(--muted); margin-bottom: 0.07rem; }
+    .pv { font-size: 0.8rem; font-weight: 600; color: var(--green); }
+    .pv.top { color: var(--purple); }
+    .pv .hl { color: var(--red); font-weight: 400; }
+    .pl2 { margin-top: 0.22rem; display: flex; gap: 0.32rem; flex-wrap: wrap; }
+    .pl2 a { font-size: 0.73rem; color: var(--muted); border: 1px solid var(--border); border-radius: 3px; padding: 0.05rem 0.36rem; }
+    .pl2 a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
-    /* ── Lists ── */
-    .simple-list {
-      list-style: none; display: flex; flex-direction: column; gap: 0.3rem;
-      font-size: 0.875rem; color: var(--muted);
-    }
-    .simple-list li::before { content: '–'; margin-right: 0.45rem; color: #ccc; }
+    /* ── Career ── */
+    .career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .citem { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 0.9rem; }
+    .citem .cp { font-size: 0.71rem; color: var(--muted); font-weight: 500; }
+    .citem .cr { font-size: 0.87rem; font-weight: 600; }
+    .citem .co { font-size: 0.81rem; color: var(--accent); }
 
+    /* ── Awards / Service ── */
+    .slist { list-style: none; display: flex; flex-direction: column; gap: 0.28rem; font-size: 0.87rem; color: var(--muted); }
+    .slist li::before { content: '–'; margin-right: 0.42rem; color: #ccc; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .col-label {
-      font-size: 0.78rem; font-weight: 600; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem;
-    }
+    .col-label { font-size: 0.76rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .45rem; }
 
     /* ── Responsive ── */
     @media (max-width: 680px) {
       .profile { flex-direction: column; align-items: center; text-align: center; }
-      .profile-links { justify-content: center; }
-      .pub-item { flex-direction: column; }
-      .pub-thumb, .thumb-blank { width: 100%; height: 110px; }
-      .career-grid, .two-col, .product-grid { grid-template-columns: 1fr; }
-      .featured-card { flex-direction: column; }
-      .featured-card img { width: 100%; height: 120px; }
+      .links-row { justify-content: center; }
+      .pub { flex-direction: column; }
+      .thumb, .blank { width: 100%; height: 110px; }
+      .career-grid, .two-col, .product-grid, .pillars { grid-template-columns: 1fr; }
+      .cosmos-banner { flex-direction: column; }
+      .cosmos-banner img { width: 100%; height: 120px; }
     }
   </style>
 </head>
@@ -185,12 +124,13 @@
         Adjunct Associate Professor · <a href="https://www.cse.cuhk.edu.hk/people/faculty/jinwei-gu/">CUHK CSE</a>
       </p>
       <p class="bio-short">
-        I work on generative models, vision &amp; world foundation models, computational photography,
-        and 3D computer vision. I co-lead <a href="https://research.nvidia.com/labs/cosmos/">NVIDIA Cosmos</a> (Best of CES 2025).
-        Previously R&amp;D Executive Director at SenseBrain, building AI imaging products deployed
-        in flagship smartphones. Ph.D. from Columbia University; B.S. &amp; M.S. from Tsinghua.
+        I work on <strong>world foundation models</strong> for Physical AI and <strong>computational imaging &amp; photography</strong>.
+        I co-lead <a href="https://research.nvidia.com/labs/cosmos/">NVIDIA Cosmos</a> (Best of CES 2025) — building the full stack from
+        tokenizers through world models, Sim2Real transfer, embodied reasoning, and robot policies.
+        Previously R&amp;D Executive Director at SenseBrain, shipping AI imaging products in flagship smartphones in collaboration with SONY.
+        Ph.D. Columbia University; B.S. &amp; M.S. Tsinghua University.
       </p>
-      <div class="profile-links">
+      <div class="links-row">
         <a href="https://scholar.google.com/citations?user=k_T8t30AAAAJ&hl=en">Google Scholar</a>
         <a href="https://research.nvidia.com/person/jinwei-gu">NVIDIA Research</a>
         <a href="https://research.nvidia.com/labs/lpr/author/jinwei-gu/">LPR Lab</a>
@@ -201,22 +141,40 @@
     </div>
   </div>
 
-  <!-- ── Featured: Cosmos ── -->
-  <h2 class="section-title">Featured Work</h2>
-  <div class="featured-card">
+  <!-- ── Research Pillars ── -->
+  <h2 class="sec">Research Focus</h2>
+  <div class="pillars">
+    <div class="pillar cosmos">
+      <h3>🌍 World Models for Physical AI</h3>
+      <p>Building the NVIDIA Cosmos platform end-to-end: neural tokenizers, world model pre-training (video diffusion &amp; autoregressive), Sim2Real transfer, embodied reasoning (LLM-based), robot policy learning, and scalable policy evaluation.</p>
+    </div>
+    <div class="pillar imaging">
+      <h3>📷 Computational Imaging &amp; Photography</h3>
+      <p>AI-driven camera systems and image/video processing: novel image sensors (RGBW), mobile ISP/SDK pipelines, image restoration &amp; enhancement (denoising, HDR, super-resolution), computational optics, lensless imaging, and polarization.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PILLAR 1 — COSMOS WORLD MODELS
+       ══════════════════════════════════════ -->
+  <h2 class="sec">Cosmos World Model Journey</h2>
+
+  <!-- Banner -->
+  <div class="cosmos-banner">
     <img src="img/cosmos.png" alt="Cosmos">
     <div>
       <span class="badge">&#127941; Best of CES 2025</span>
       <h3>NVIDIA Cosmos — World Foundation Model Platform for Physical AI</h3>
       <p>
-        I co-lead Cosmos: NVIDIA's open-source world foundation model platform for Physical AI
-        (robotics &amp; autonomous driving). Covers video tokenizers, world model pre-training &amp; post-training,
-        Cosmos-Transfer (Sim2Real control), Cosmos-Reason (embodied reasoning), and Cosmos-Policy.
+        Tech lead across the full Cosmos stack — from tokenizers through world models,
+        Sim2Real transfer, embodied reasoning, robot policies, and Physical AI evaluation.
+        Open-source. Deployed for robotics, autonomous driving, and embodied AI research.
       </p>
-      <div class="links">
-        <a href="https://arxiv.org/abs/2501.03575">Paper</a>
+      <div class="nv-links">
         <a href="https://research.nvidia.com/labs/cosmos/">Project</a>
         <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
+        <a href="https://arxiv.org/abs/2501.03575">Cosmos1 Paper</a>
+        <a href="https://arxiv.org/abs/2511.00062">Cosmos2.5 Paper</a>
         <a href="https://arxiv.org/abs/2503.14492">Transfer1</a>
         <a href="https://arxiv.org/abs/2503.15558">Reason1</a>
         <a href="https://arxiv.org/abs/2601.16163">Policy</a>
@@ -224,456 +182,513 @@
     </div>
   </div>
 
-  <!-- ── Product Highlights ── -->
-  <h2 class="section-title">Research &amp; Product Impact</h2>
-  <div class="product-grid">
-
-    <div class="product-card">
-      <span class="prod-icon">📱</span>
-      <div class="prod-name">AI Imaging Sensors &amp; Camera Systems</div>
-      <div class="prod-org">SenseBrain / SONY · 2018–2023</div>
-      <div class="prod-desc">
-        Built &amp; led a 30-person R&amp;D team to co-develop the world's first AI sensor (SONY IMX866 RGBW)
-        and the first 200MP camera (IMX777), shipping in flagship smartphones. Delivered AI ISP,
-        Super Resolution, Super Night, Portrait Restoration, Under-Display Camera, and HDR video pipelines.
-      </div>
-      <div class="prod-links">
-        <a href="https://arxiv.org/abs/2209.07530">MIPI RGBW Challenge</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <span class="prod-icon">🚗</span>
-      <div class="prod-name">NVIDIA DRIVE IX — AI Co-Pilot SDK</div>
-      <div class="prod-org">NVIDIA Research · 2017–2018</div>
-      <div class="prod-desc">
-        Core team member building the AI Co-Pilot SDK for autonomous vehicles — head pose &amp; gaze estimation,
-        facial keypoint tracking, drowsiness/distraction detection, hand gesture recognition.
-        Demoed in NVIDIA CEO keynote at CES 2017 and shipped in DRIVE IX SDK.
-      </div>
-      <div class="prod-links">
-        <a href="https://developer.nvidia.com/blog/ai-co-pilot-rnn-dynamic-facial-analysis/">Blog</a>
-        <a href="https://techcrunch.com/2017/01/04/nvidia-builds-a-co-pilot-into-its-autonomous-drive-computer/">TechCrunch</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <span class="prod-icon">🎥</span>
-      <div class="prod-name">VirtualEye — Multi-Camera Free-View System</div>
-      <div class="prod-org">NVIDIA + DARPA · 2015–2017</div>
-      <div class="prod-desc">
-        Key member for this NVIDIA–DARPA project building a real-time multi-camera system for
-        free-view video and telepresence. Led multi-camera Co-SLAM tracking and system design;
-        ported the full pipeline on NVIDIA Jetson TX2 for mobile deployment.
-      </div>
-      <div class="prod-links">
-        <a href="https://www.engadget.com/2016-06-24-darpas-virtual-eye-lets-soldiers-see-around-obstacles.html">Engadget</a>
-      </div>
-    </div>
-
+  <!-- Timeline pills -->
+  <div class="journey">
+    <div class="jpill"><span class="date">Jan 2025</span> Cosmos Tokenizer</div>
+    <div class="jpill"><span class="date">Jan 2025</span> Cosmos1 (CES 2025)</div>
+    <div class="jpill"><span class="date">Mar 2025</span> Cosmos-Transfer1</div>
+    <div class="jpill"><span class="date">Mar 2025</span> Cosmos-Reason1</div>
+    <div class="jpill"><span class="date">Oct 2025</span> Cosmos2.5</div>
+    <div class="jpill"><span class="date">Oct 2025</span> Cosmos-Transfer2.5</div>
+    <div class="jpill"><span class="date">Nov 2025</span> Policy Evaluation</div>
+    <div class="jpill"><span class="date">Jan 2026</span> Cosmos-Policy (ICLR)</div>
+    <div class="jpill"><span class="date">Feb 2026</span> DreamDojo</div>
+    <div class="jpill"><span class="date">ongoing</span> Cosmos3 ...</div>
   </div>
 
-  <!-- ── Career ── -->
-  <h2 class="section-title">Career</h2>
-  <div class="career-grid">
-    <div class="career-item">
-      <div class="period">2024 – present</div>
-      <div class="role">Principal Research Scientist &amp; Tech Lead</div>
-      <div class="org"><a href="https://research.nvidia.com/">NVIDIA Research</a></div>
-    </div>
-    <div class="career-item">
-      <div class="period">2023 – present</div>
-      <div class="role">Adjunct Associate Professor</div>
-      <div class="org"><a href="https://www.cse.cuhk.edu.hk/">CUHK — CSE</a></div>
-    </div>
-    <div class="career-item">
-      <div class="period">2018 – 2023</div>
-      <div class="role">R&amp;D Executive Director</div>
-      <div class="org">SenseBrain Technology (SenseTime Research USA)</div>
-    </div>
-    <div class="career-item">
-      <div class="period">2015 – 2018</div>
-      <div class="role">Senior Research Scientist</div>
-      <div class="org"><a href="https://research.nvidia.com/">NVIDIA Research</a></div>
-    </div>
-    <div class="career-item">
-      <div class="period">2013 – 2015</div>
-      <div class="role">Senior Research Scientist</div>
-      <div class="org">Futurewei Technologies (America Media Lab)</div>
-    </div>
-    <div class="career-item">
-      <div class="period">2010 – 2013</div>
-      <div class="role">Assistant Professor, Center for Imaging Science</div>
-      <div class="org">Rochester Institute of Technology</div>
-    </div>
-  </div>
+  <!-- Cosmos papers -->
+  <div class="pubs">
 
-  <!-- ── Publications ── -->
-  <h2 class="section-title">Selected Publications
-    <span style="font-size:0.75rem;font-weight:400;text-transform:none;letter-spacing:0;margin-left:0.5rem;">
-      [<a href="https://scholar.google.com/citations?user=k_T8t30AAAAJ&hl=en">Full list on Google Scholar</a>]
-    </span>
-  </h2>
-
-  <!-- 2025–2026 -->
-  <div class="year-label">2025 – 2026</div>
-  <div class="pub-list">
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/cosmos_transfer.png" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/cosmos_reason.png" alt="">
       <div>
-        <div class="pub-title">Cosmos-Transfer1: Conditional World Generation with Adaptive Multimodal Control</div>
-        <div class="pub-authors">NVIDIA Team (Jinwei Gu, Tech Lead, et al.)</div>
-        <div class="pub-venue top">arXiv 2503.14492, 2025</div>
-        <div class="pub-links">
+        <div class="pt">Cosmos World Foundation Model Platform for Physical AI (Cosmos1 + Cosmos Tokenizer)</div>
+        <div class="pa">NVIDIA Team — Jinwei Gu, Tech Lead (Cosmos Tokenizer lead: Fitsum Reda, Jinwei Gu, et al.)</div>
+        <div class="pv top">arXiv 2501.03575 · Jan 2025 <span class="hl">(Best of CES 2025)</span></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2501.03575">Paper</a>
+          <a href="https://research.nvidia.com/labs/cosmos/">Project</a>
+          <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
+          <a href="https://github.com/NVIDIA/Cosmos-Tokenizer">Tokenizer GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img class="thumb" src="img/cosmos_transfer.png" alt="">
+      <div>
+        <div class="pt">Cosmos-Transfer1: Conditional World Generation with Adaptive Multimodal Control</div>
+        <div class="pa">NVIDIA Team — Jinwei Gu, Tech Lead, et al.</div>
+        <div class="pv top">arXiv 2503.14492 · Mar 2025</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2503.14492">Paper</a>
           <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
         </div>
       </div>
     </div>
 
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/cosmos_reason.png" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/cosmos_reason.png" alt="">
       <div>
-        <div class="pub-title">Cosmos-Reason1: From Physical Common Sense To Embodied Reasoning</div>
-        <div class="pub-authors">NVIDIA Team (Jinwei Gu, Tech Lead, et al.)</div>
-        <div class="pub-venue top">arXiv 2503.15558, 2025</div>
-        <div class="pub-links">
+        <div class="pt">Cosmos-Reason1: From Physical Common Sense To Embodied Reasoning</div>
+        <div class="pa">NVIDIA Team — Jinwei Gu, Tech Lead, et al.</div>
+        <div class="pv top">arXiv 2503.15558 · Mar 2025</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2503.15558">Paper</a>
           <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
         </div>
       </div>
     </div>
 
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/cubecomposer.png" alt="">
+    <div class="pub">
+      <div class="blank"></div>
       <div>
-        <div class="pub-title">CubeComposer: Spatio-Temporal Autoregressive 4K 360° Video Generation from Perspective Video</div>
-        <div class="pub-authors">Lingen Li, Guangzhi Wang, Xiaoyu Li, Tianfan Xue, Ying Shan, Jinwei Gu</div>
-        <div class="pub-venue top">CVPR 2026</div>
-        <div class="pub-links">
+        <div class="pt">World Simulation with Video Foundation Models for Physical AI (Cosmos-Predict2.5 / Cosmos-Transfer2.5)</div>
+        <div class="pa">NVIDIA Team — Jinwei Gu, et al.</div>
+        <div class="pv top">arXiv 2511.00062 · Oct 2025</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2511.00062">Paper</a>
+          <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img class="thumb" src="img/policy_eval.png" alt="">
+      <div>
+        <div class="pt">Scalable Policy Evaluation with Video World Models</div>
+        <div class="pa">Wei-Cheng Tseng, <strong>Jinwei Gu</strong>, Qinsheng Zhang, Hanzi Mao, Ming-Yu Liu, Florian Shkurti, Lin Yen-Chen</div>
+        <div class="pv top">arXiv 2511.11520 · Nov 2025</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2511.11520">Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img class="thumb" src="img/cosmos_policy.jpg" alt="">
+      <div>
+        <div class="pt">Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning</div>
+        <div class="pa">Moo Jin Kim, Yihuai Gao, Tsung-Yi Lin, Yen-Chen Lin, Yunhao Ge, Percy Liang, Shuran Song, Ming-Yu Liu, Chelsea Finn, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">ICLR 2026</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2601.16163">Paper</a>
+          <a href="https://research.nvidia.com/labs/dir/cosmos-policy/">Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img class="thumb" src="img/dreamdojo.png" alt="">
+      <div>
+        <div class="pt">DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos</div>
+        <div class="pa">Shenyuan Gao, William Liang, Kaiyuan Zheng, ..., <strong>Jinwei Gu</strong>, Jitendra Malik, Pieter Abbeel, Ming-Yu Liu, Yuke Zhu, Linxi Fan (30 authors)</div>
+        <div class="pv top">arXiv 2602.06949 · Feb 2026</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2602.06949">Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img class="thumb" src="img/plenoptic.png" alt="">
+      <div>
+        <div class="pt">Plenoptic Video Generation</div>
+        <div class="pa">Xiao Fu, Shitao Tang, Min Shi, Xian Liu, <strong>Jinwei Gu</strong>, Ming-Yu Liu, Dahua Lin, Chen-Hsuan Lin</div>
+        <div class="pv top">CVPR 2026</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2601.05239">Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img class="thumb" src="img/cubecomposer.png" alt="">
+      <div>
+        <div class="pt">CubeComposer: Spatio-Temporal Autoregressive 4K 360° Video Generation from Perspective Video</div>
+        <div class="pa">Lingen Li, Guangzhi Wang, Xiaoyu Li, Tianfan Xue, Ying Shan, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">CVPR 2026</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2603.04291">Paper</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/artiscene.png" alt="">
-      <div>
-        <div class="pub-title">ArtiScene: Language-Driven Artistic 3D Scene Generation Through Image Intermediary</div>
-        <div class="pub-authors">Zeqi Gu, Yin Cui, Max Li, Fangyin Wei, Yunhao Ge, Jinwei Gu, Ming-Yu Liu, Abe Davis, Yifan Ding</div>
-        <div class="pub-venue top">CVPR 2025</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2506.00742">Paper</a>
-          <a href="https://artiscene-cvpr.github.io/">Project</a>
-          <a href="https://github.com/NVlabs/ArtiScene">Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/polarfree.png" alt="">
-      <div>
-        <div class="pub-title">PolarFree: Polarization-based Reflection-free Imaging</div>
-        <div class="pub-authors">Mingde Yao, Menglu Wang, King Man Tam, Lingen Li, Tianfan Xue, Jinwei Gu</div>
-        <div class="pub-venue top">CVPR 2025</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2503.18055">Paper</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/nvcomposer.png" alt="">
-      <div>
-        <div class="pub-title">NVComposer: Boosting Generative Novel View Synthesis with Multiple Sparse and Unposed Images</div>
-        <div class="pub-authors">Lingen Li, Zhaoyang Zhang, Yaowei Li, Jiale Xu, Xiaoyu Li, Wenbo Hu, Weihao Cheng, Jinwei Gu, Tianfan Xue, Ying Shan</div>
-        <div class="pub-venue top">CVPR 2025</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2412.03517">Paper</a>
-          <a href="https://lg-li.github.io/project/nvcomposer/">Project</a>
-          <a href="https://github.com/TencentARC/NVComposer">Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/gspn.png" alt="">
-      <div>
-        <div class="pub-title">Parallel Sequence Modeling via Generalized Spatial Propagation Network</div>
-        <div class="pub-authors">Hongjun Wang, Wonmin Byeon, Jiarui Xu, Jinwei Gu, Ka Chun Cheung, Xiaolong Wang, Kai Han, Jan Kautz, Sifei Liu</div>
-        <div class="pub-venue top">CVPR 2025</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2501.12381">Paper</a>
-          <a href="https://whj363636.github.io/GSPN/">Project</a>
-          <a href="https://github.com/NVlabs/GSPN">Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/blur_learning.png" alt="">
-      <div>
-        <div class="pub-title">A Physics-Informed Blur Learning Framework for Imaging Systems</div>
-        <div class="pub-authors">Liqun Chen, Yuxuan Li, Jun Dai, Jinwei Gu, Tianfan Xue</div>
-        <div class="pub-venue top">CVPR 2025</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2502.11382">Paper</a>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- 2024 -->
-  <div class="year-label">2024</div>
-  <div class="pub-list">
+  <!-- ══════════════════════════════════════
+       PILLAR 2 — COMPUTATIONAL IMAGING
+       ══════════════════════════════════════ -->
+  <h2 class="sec">Computational Imaging &amp; Photography</h2>
 
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/dualdn.png" alt="">
+  <!-- Products -->
+  <div class="product-grid">
+    <div class="pcard">
+      <div class="icon">📱</div>
+      <div class="pname">AI Imaging Sensors &amp; Mobile Camera Systems</div>
+      <div class="porg">SenseBrain / SONY · 2018–2023</div>
+      <div class="pdesc">
+        Built &amp; led a 30-person R&amp;D team to co-develop with SONY the world's first AI sensor
+        (RGBW IMX866) and 200MP camera (IMX777), shipping in flagship smartphones.
+        Delivered full AI ISP, Super Resolution, Super Night, Portrait Restoration, RGBCMY sensor, Under-Display Camera, and HDR video pipelines.
+      </div>
+      <div class="pl">
+        <a href="https://arxiv.org/abs/2209.07530">MIPI RGBW Challenge</a>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="icon">🚗</div>
+      <div class="pname">NVIDIA DRIVE IX — AI Co-Pilot SDK</div>
+      <div class="porg">NVIDIA Research · 2017–2018</div>
+      <div class="pdesc">
+        Core contributor to the AI Co-Pilot SDK: head pose, gaze estimation, facial keypoint tracking,
+        drowsiness/distraction detection, gesture recognition.
+        Demoed in NVIDIA CEO keynote at CES 2017; shipped in NVIDIA DRIVE IX SDK.
+      </div>
+      <div class="pl">
+        <a href="https://developer.nvidia.com/blog/ai-co-pilot-rnn-dynamic-facial-analysis/">NVIDIA Blog</a>
+        <a href="https://techcrunch.com/2017/01/04/nvidia-builds-a-co-pilot-into-its-autonomous-drive-computer/">TechCrunch</a>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="icon">🎥</div>
+      <div class="pname">VirtualEye — Multi-Camera Free-View System</div>
+      <div class="porg">NVIDIA + DARPA · 2015–2017</div>
+      <div class="pdesc">
+        Key member for this NVIDIA–DARPA project: real-time multi-camera Co-SLAM, 3D reconstruction,
+        novel view synthesis, and free-view video streaming for telepresence.
+        Led Co-SLAM tracking; ported full pipeline on NVIDIA Jetson TX2.
+      </div>
+      <div class="pl">
+        <a href="https://www.engadget.com/2016-06-24-darpas-virtual-eye-lets-soldiers-see-around-obstacles.html">Engadget</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Computational Imaging papers -->
+  <div class="yl">2025</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/polarfree.png" alt="">
       <div>
-        <div class="pub-title">DualDn: Dual-domain Denoising via Differentiable ISP</div>
-        <div class="pub-authors">Ruikang Li, Yujin Wang, Shiqi Chen, Fan Zhang, Jinwei Gu, Tianfan Xue</div>
-        <div class="pub-venue top">ECCV 2024</div>
-        <div class="pub-links">
+        <div class="pt">PolarFree: Polarization-based Reflection-free Imaging</div>
+        <div class="pa">Mingde Yao, Menglu Wang, King Man Tam, Lingen Li, Tianfan Xue, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">CVPR 2025</div>
+        <div class="pl2"><a href="https://arxiv.org/abs/2503.18055">Paper</a></div>
+      </div>
+    </div>
+    <div class="pub">
+      <img class="thumb" src="img/blur_learning.png" alt="">
+      <div>
+        <div class="pt">A Physics-Informed Blur Learning Framework for Imaging Systems</div>
+        <div class="pa">Liqun Chen, Yuxuan Li, Jun Dai, <strong>Jinwei Gu</strong>, Tianfan Xue</div>
+        <div class="pv top">CVPR 2025</div>
+        <div class="pl2"><a href="https://arxiv.org/abs/2502.11382">Paper</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="yl">2024</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/dualdn.png" alt="">
+      <div>
+        <div class="pt">DualDn: Dual-domain Denoising via Differentiable ISP</div>
+        <div class="pa">Ruikang Li, Yujin Wang, Shiqi Chen, Fan Zhang, <strong>Jinwei Gu</strong>, Tianfan Xue</div>
+        <div class="pv top">ECCV 2024</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2409.18783">Paper</a>
           <a href="https://openimaginglab.github.io/DualDn/">Project</a>
           <a href="https://github.com/OpenImagingLab/DualDn">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/phocolens.png" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/phocolens.png" alt="">
       <div>
-        <div class="pub-title">PhoCoLens: Photorealistic and Consistent Reconstruction in Lensless Imaging</div>
-        <div class="pub-authors">Xin Cai, Zhiyuan You, Hailong Zhang, Jinwei Gu, Wentao Liu, Tianfan Xue</div>
-        <div class="pub-venue top">NeurIPS 2024 <span class="hl">(Spotlight)</span></div>
-        <div class="pub-links">
+        <div class="pt">PhoCoLens: Photorealistic and Consistent Reconstruction in Lensless Imaging</div>
+        <div class="pa">Xin Cai, Zhiyuan You, Hailong Zhang, <strong>Jinwei Gu</strong>, Wentao Liu, Tianfan Xue</div>
+        <div class="pv top">NeurIPS 2024 <span class="hl">(Spotlight)</span></div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2409.17996">Paper</a>
           <a href="https://phocolens.github.io/">Project</a>
           <a href="https://github.com/OpenImagingLab/PhoCoLens">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/adaptiveisp.png" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/adaptiveisp.png" alt="">
       <div>
-        <div class="pub-title">AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection</div>
-        <div class="pub-authors">Yujin Wang, Tianyi Xu, Zhang Fan, Tianfan Xue, Jinwei Gu</div>
-        <div class="pub-venue top">NeurIPS 2024</div>
-        <div class="pub-links">
+        <div class="pt">AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection</div>
+        <div class="pa">Yujin Wang, Tianyi Xu, Zhang Fan, Tianfan Xue, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">NeurIPS 2024</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2410.22939">Paper</a>
           <a href="https://openimaginglab.github.io/AdaptiveISP/">Project</a>
           <a href="https://github.com/OpenImagingLab/AdaptiveISP">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/matting_by_gen.jpg" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/hdrflow.png" alt="">
       <div>
-        <div class="pub-title">Matting by Generation</div>
-        <div class="pub-authors">Zhixiang Wang, Baiang Li, Jian Wang, Yu-Lun Liu, Jinwei Gu, Yung-Yu Chuang, Shinichi Satoh</div>
-        <div class="pub-venue top">SIGGRAPH 2024</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2407.21017">Paper</a>
-          <a href="https://lightchaserx.github.io/matting-by-generation/">Project</a>
-          <a href="https://github.com/lightChaserX/alphaLDM">Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/autodir.png" alt="">
-      <div>
-        <div class="pub-title">AutoDIR: Automatic All-in-one Image Restoration with Latent Diffusion</div>
-        <div class="pub-authors">Yitong Jiang, Zhaoyang Zhang, Tianfan Xue, Jinwei Gu</div>
-        <div class="pub-venue top">ECCV 2024</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2310.10123">Paper</a>
-          <a href="https://jiangyitong.github.io/AutoDIR_webpage/">Project</a>
-          <a href="https://github.com/jiangyitong/AutoDIR">Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/hdrflow.png" alt="">
-      <div>
-        <div class="pub-title">HDRFlow: Real-time HDR Video Reconstruction with Large Motion</div>
-        <div class="pub-authors">Gangwei Xu, Yujin Wang, Jinwei Gu, Tianfan Xue, Xin Yang</div>
-        <div class="pub-venue top">CVPR 2024</div>
-        <div class="pub-links">
+        <div class="pt">HDRFlow: Real-time HDR Video Reconstruction with Large Motion</div>
+        <div class="pa">Gangwei Xu, Yujin Wang, <strong>Jinwei Gu</strong>, Tianfan Xue, Xin Yang</div>
+        <div class="pv top">CVPR 2024</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2403.03447">Paper</a>
           <a href="https://openimaginglab.github.io/HDRFlow/">Project</a>
           <a href="https://github.com/OpenImagingLab/HDRFlow">Code</a>
         </div>
       </div>
     </div>
-
+    <div class="pub">
+      <img class="thumb" src="img/matting_by_gen.jpg" alt="">
+      <div>
+        <div class="pt">Matting by Generation</div>
+        <div class="pa">Zhixiang Wang, Baiang Li, Jian Wang, Yu-Lun Liu, <strong>Jinwei Gu</strong>, Yung-Yu Chuang, Shinichi Satoh</div>
+        <div class="pv top">SIGGRAPH 2024</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2407.21017">Paper</a>
+          <a href="https://lightchaserx.github.io/matting-by-generation/">Project</a>
+          <a href="https://github.com/lightChaserX/alphaLDM">Code</a>
+        </div>
+      </div>
+    </div>
+    <div class="pub">
+      <img class="thumb" src="img/autodir.png" alt="">
+      <div>
+        <div class="pt">AutoDIR: Automatic All-in-one Image Restoration with Latent Diffusion</div>
+        <div class="pa">Yitong Jiang, Zhaoyang Zhang, Tianfan Xue, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">ECCV 2024</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2310.10123">Paper</a>
+          <a href="https://jiangyitong.github.io/AutoDIR_webpage/">Project</a>
+          <a href="https://github.com/jiangyitong/AutoDIR">Code</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- 2023 -->
-  <div class="year-label">2023</div>
-  <div class="pub-list">
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/adacode.png" alt="">
+  <div class="yl">2023</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/adacode.png" alt="">
       <div>
-        <div class="pub-title">Learning Image-Adaptive Codebooks for Class-Agnostic Image Restoration</div>
-        <div class="pub-authors">Kechun Liu, Yitong Jiang, Inchang Choi, Jinwei Gu</div>
-        <div class="pub-venue top">ICCV 2023</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2306.06513">Paper</a>
-        </div>
+        <div class="pt">Learning Image-Adaptive Codebooks for Class-Agnostic Image Restoration</div>
+        <div class="pa">Kechun Liu, Yitong Jiang, Inchang Choi, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">ICCV 2023</div>
+        <div class="pl2"><a href="https://arxiv.org/abs/2306.06513">Paper</a></div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/dtd.jpg" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/dtd.jpg" alt="">
       <div>
-        <div class="pub-title">Real-time Controllable Denoising for Image and Video</div>
-        <div class="pub-authors">Zhaoyang Zhang, Yitong Jiang, Wenqi Shao, Xiaogang Wang, Ping Luo, Kaimo Lin, Jinwei Gu</div>
-        <div class="pub-venue top">CVPR 2023</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2303.16425">Paper</a>
-        </div>
+        <div class="pt">Real-time Controllable Denoising for Image and Video</div>
+        <div class="pa">Zhaoyang Zhang, Yitong Jiang, Wenqi Shao, Xiaogang Wang, Ping Luo, Kaimo Lin, <strong>Jinwei Gu</strong></div>
+        <div class="pv top">CVPR 2023</div>
+        <div class="pl2"><a href="https://arxiv.org/abs/2303.16425">Paper</a></div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <div class="thumb-blank"></div>
+    <div class="pub">
+      <div class="blank"></div>
       <div>
-        <div class="pub-title">Generating Aligned Pseudo-Supervision from Non-Aligned Data for Image Restoration in Under-Display Camera</div>
-        <div class="pub-authors">Ruicheng Feng, Chongyi Li, Huaijin Chen, Shuai Li, Jinwei Gu, Chen Change Loy</div>
-        <div class="pub-venue top">CVPR 2023</div>
-        <div class="pub-links">
+        <div class="pt">Generating Aligned Pseudo-Supervision from Non-Aligned Data for Image Restoration in Under-Display Camera</div>
+        <div class="pa">Ruicheng Feng, Chongyi Li, Huaijin Chen, Shuai Li, <strong>Jinwei Gu</strong>, Chen Change Loy</div>
+        <div class="pv top">CVPR 2023</div>
+        <div class="pl2">
           <a href="https://jnjaby.github.io/projects/AlignFormer/">Project</a>
           <a href="https://github.com/jnjaby/AlignFormer">Code</a>
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- 2022 -->
-  <div class="year-label">2022</div>
-  <div class="pub-list">
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/fourier.jpg" alt="">
+  <div class="yl">2022</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/fourier.jpg" alt="">
       <div>
-        <div class="pub-title">Deep Fourier Up-Sampling</div>
-        <div class="pub-authors">Man Zhou, Yu Hu, Jie Huang, Feng Zhao, Jinwei Gu, Chen Change Loy, Deyu Meng, Chongyi Li</div>
-        <div class="pub-venue top">NeurIPS 2022</div>
-        <div class="pub-links">
-          <a href="https://li-chongyi.github.io/FourierUp_files/">Project</a>
-        </div>
+        <div class="pt">Deep Fourier Up-Sampling</div>
+        <div class="pa">Man Zhou, Yu Hu, Jie Huang, Feng Zhao, <strong>Jinwei Gu</strong>, Chen Change Loy, Deyu Meng, Chongyi Li</div>
+        <div class="pv top">NeurIPS 2022</div>
+        <div class="pl2"><a href="https://li-chongyi.github.io/FourierUp_files/">Project</a></div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/pinhole.jpg" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/pinhole.jpg" alt="">
       <div>
-        <div class="pub-title">Deep Camera Obscura: An Image Restoration Pipeline for Lensless Pinhole Photography</div>
-        <div class="pub-authors">Joshua Rego, Huaijin Chen, Shuai Li, Jinwei Gu, Suren Jayasuriya</div>
-        <div class="pub-venue">Optics Express, 2022</div>
-        <div class="pub-links">
-          <a href="https://opg.optica.org/oe/fulltext.cfm?uri=oe-30-15-27214&id=478821">Paper</a>
-        </div>
+        <div class="pt">Deep Camera Obscura: An Image Restoration Pipeline for Lensless Pinhole Photography</div>
+        <div class="pa">Joshua Rego, Huaijin Chen, Shuai Li, <strong>Jinwei Gu</strong>, Suren Jayasuriya</div>
+        <div class="pv">Optics Express, 2022</div>
+        <div class="pl2"><a href="https://opg.optica.org/oe/fulltext.cfm?uri=oe-30-15-27214&id=478821">Paper</a></div>
       </div>
     </div>
-
   </div>
 
-  <!-- Earlier highlights -->
-  <div class="year-label">Earlier Highlights</div>
-  <div class="pub-list">
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/glean.jpg" alt="">
+  <div class="yl">Earlier Highlights (Imaging)</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/glean.jpg" alt="">
       <div>
-        <div class="pub-title">GLEAN: Generative Latent Bank for Image Super-Resolution and Beyond</div>
-        <div class="pub-authors">Kelvin C.K. Chan, Xintao Wang, Xiangyu Xu, Jinwei Gu, Chen Change Loy</div>
-        <div class="pub-venue top">CVPR 2021 <span class="hl">(Oral)</span> · IEEE TPAMI 2023</div>
-        <div class="pub-links">
+        <div class="pt">GLEAN: Generative Latent Bank for Image Super-Resolution and Beyond</div>
+        <div class="pa">Kelvin C.K. Chan, Xintao Wang, Xiangyu Xu, <strong>Jinwei Gu</strong>, Chen Change Loy</div>
+        <div class="pv top">CVPR 2021 <span class="hl">(Oral)</span> · IEEE TPAMI 2023</div>
+        <div class="pl2">
           <a href="https://ckkelvinchan.github.io/projects/GLEAN/">Project</a>
           <a href="https://github.com/ckkelvinchan/GLEAN">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/lowlight.jpg" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/lowlight.jpg" alt="">
       <div>
-        <div class="pub-title">Low-light Image and Video Enhancement Using Deep Learning: A Survey</div>
-        <div class="pub-authors">Chongyi Li, Chunle Guo, Linghao Han, Jun Jiang, Ming-Ming Cheng, Jinwei Gu, Chen Change Loy</div>
-        <div class="pub-venue">IEEE TPAMI 2022</div>
-        <div class="pub-links">
+        <div class="pt">Low-light Image and Video Enhancement Using Deep Learning: A Survey</div>
+        <div class="pa">Chongyi Li, Chunle Guo, Linghao Han, Jun Jiang, Ming-Ming Cheng, <strong>Jinwei Gu</strong>, Chen Change Loy</div>
+        <div class="pv">IEEE TPAMI 2022</div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/2104.10729">Paper</a>
           <a href="https://github.com/Li-Chongyi/Lighting-the-Darkness-in-the-Deep-Learning-Era-Open">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/rgbd.png" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/dome.jpg" alt="">
       <div>
-        <div class="pub-title">Neural RGB→D Sensing: Depth and Uncertainty from a Video Camera</div>
-        <div class="pub-authors">Chao Liu, Jinwei Gu, Kihwan Kim, Srinivas Narasimhan, Jan Kautz</div>
-        <div class="pub-venue top">CVPR 2019 <span class="hl">(Oral · Best Paper Finalist)</span></div>
-        <div class="pub-links">
+        <div class="pt">Discriminative Illumination: Per-Pixel Classification of Raw Materials based on Optimal Projections of Spectral BRDFs</div>
+        <div class="pa"><strong>Jinwei Gu</strong>, Chao Liu</div>
+        <div class="pv top">CVPR 2012 <span class="hl">(Oral)</span> · IEEE TPAMI 2014</div>
+        <div class="pl2"><a href="https://arxiv.org/abs/1205.6498">Paper</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       OTHER SELECTED PUBLICATIONS
+       ══════════════════════════════════════ -->
+  <h2 class="sec">Other Selected Publications</h2>
+
+  <div class="yl">2025</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/artiscene.png" alt="">
+      <div>
+        <div class="pt">ArtiScene: Language-Driven Artistic 3D Scene Generation Through Image Intermediary</div>
+        <div class="pa">Zeqi Gu, Yin Cui, Max Li, Fangyin Wei, Yunhao Ge, <strong>Jinwei Gu</strong>, Ming-Yu Liu, Abe Davis, Yifan Ding</div>
+        <div class="pv top">CVPR 2025</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2506.00742">Paper</a>
+          <a href="https://artiscene-cvpr.github.io/">Project</a>
+          <a href="https://github.com/NVlabs/ArtiScene">Code</a>
+        </div>
+      </div>
+    </div>
+    <div class="pub">
+      <img class="thumb" src="img/nvcomposer.png" alt="">
+      <div>
+        <div class="pt">NVComposer: Boosting Generative Novel View Synthesis with Multiple Sparse and Unposed Images</div>
+        <div class="pa">Lingen Li, Zhaoyang Zhang, Yaowei Li, ..., <strong>Jinwei Gu</strong>, Tianfan Xue, Ying Shan</div>
+        <div class="pv top">CVPR 2025</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2412.03517">Paper</a>
+          <a href="https://lg-li.github.io/project/nvcomposer/">Project</a>
+          <a href="https://github.com/TencentARC/NVComposer">Code</a>
+        </div>
+      </div>
+    </div>
+    <div class="pub">
+      <img class="thumb" src="img/gspn.png" alt="">
+      <div>
+        <div class="pt">Parallel Sequence Modeling via Generalized Spatial Propagation Network</div>
+        <div class="pa">Hongjun Wang, Wonmin Byeon, Jiarui Xu, <strong>Jinwei Gu</strong>, Ka Chun Cheung, Xiaolong Wang, Kai Han, Jan Kautz, Sifei Liu</div>
+        <div class="pv top">CVPR 2025</div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2501.12381">Paper</a>
+          <a href="https://whj363636.github.io/GSPN/">Project</a>
+          <a href="https://github.com/NVlabs/GSPN">Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="yl">Earlier Highlights (3D Vision &amp; Rendering)</div>
+  <div class="pubs">
+    <div class="pub">
+      <img class="thumb" src="img/rgbd.png" alt="">
+      <div>
+        <div class="pt">Neural RGB→D Sensing: Depth and Uncertainty from a Video Camera</div>
+        <div class="pa">Chao Liu, <strong>Jinwei Gu</strong>, Kihwan Kim, Srinivas Narasimhan, Jan Kautz</div>
+        <div class="pv top">CVPR 2019 <span class="hl">(Oral · Best Paper Finalist)</span></div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/1901.02571">Paper</a>
           <a href="https://github.com/NVlabs/neuralrgbd">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/planercnn.png" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/planercnn.png" alt="">
       <div>
-        <div class="pub-title">PlaneRCNN: 3D Plane Detection and Reconstruction from a Single Image</div>
-        <div class="pub-authors">Chen Liu, Kihwan Kim, Jinwei Gu, Yasutaka Furukawa, Jan Kautz</div>
-        <div class="pub-venue top">CVPR 2019 <span class="hl">(Oral)</span></div>
-        <div class="pub-links">
+        <div class="pt">PlaneRCNN: 3D Plane Detection and Reconstruction from a Single Image</div>
+        <div class="pa">Chen Liu, Kihwan Kim, <strong>Jinwei Gu</strong>, Yasutaka Furukawa, Jan Kautz</div>
+        <div class="pv top">CVPR 2019 <span class="hl">(Oral)</span></div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/1812.04072">Paper</a>
           <a href="https://github.com/NVlabs/planercnn">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/mapnet.jpg" alt="">
+    <div class="pub">
+      <img class="thumb" src="img/mapnet.jpg" alt="">
       <div>
-        <div class="pub-title">MapNet: Geometry-Aware Learning of Maps for Camera Localization</div>
-        <div class="pub-authors">Samarth Brahmbhatt, Jinwei Gu, Kihwan Kim, James Hayes, Jan Kautz</div>
-        <div class="pub-venue top">CVPR 2018 <span class="hl">(Spotlight)</span></div>
-        <div class="pub-links">
+        <div class="pt">MapNet: Geometry-Aware Learning of Maps for Camera Localization</div>
+        <div class="pa">Samarth Brahmbhatt, <strong>Jinwei Gu</strong>, Kihwan Kim, James Hayes, Jan Kautz</div>
+        <div class="pv top">CVPR 2018 <span class="hl">(Spotlight)</span></div>
+        <div class="pl2">
           <a href="https://arxiv.org/abs/1712.03342">Paper</a>
           <a href="https://github.com/NVlabs/geomapnet">Code</a>
         </div>
       </div>
     </div>
-
-    <div class="pub-item">
-      <img class="pub-thumb" src="img/dome.jpg" alt="">
-      <div>
-        <div class="pub-title">Discriminative Illumination: Per-Pixel Classification of Raw Materials based on Optimal Projections of Spectral BRDFs</div>
-        <div class="pub-authors">Jinwei Gu, Chao Liu</div>
-        <div class="pub-venue top">CVPR 2012 <span class="hl">(Oral)</span> · IEEE TPAMI 2014</div>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/1205.6498">Paper</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- ── Awards ── -->
-  <h2 class="section-title">Honors &amp; Awards</h2>
-  <ul class="simple-list">
+  <!-- ── Career ── -->
+  <h2 class="sec">Career</h2>
+  <div class="career-grid">
+    <div class="citem">
+      <div class="cp">2024 – present</div>
+      <div class="cr">Principal Research Scientist &amp; Tech Lead</div>
+      <div class="co"><a href="https://research.nvidia.com/">NVIDIA Research</a></div>
+    </div>
+    <div class="citem">
+      <div class="cp">2023 – present</div>
+      <div class="cr">Adjunct Associate Professor</div>
+      <div class="co"><a href="https://www.cse.cuhk.edu.hk/">CUHK — CSE</a></div>
+    </div>
+    <div class="citem">
+      <div class="cp">2018 – 2023</div>
+      <div class="cr">R&amp;D Executive Director</div>
+      <div class="co">SenseBrain Technology (SenseTime Research USA)</div>
+    </div>
+    <div class="citem">
+      <div class="cp">2015 – 2018</div>
+      <div class="cr">Senior Research Scientist</div>
+      <div class="co"><a href="https://research.nvidia.com/">NVIDIA Research</a></div>
+    </div>
+    <div class="citem">
+      <div class="cp">2013 – 2015</div>
+      <div class="cr">Senior Research Scientist</div>
+      <div class="co">Futurewei Technologies (America Media Lab)</div>
+    </div>
+    <div class="citem">
+      <div class="cp">2010 – 2013</div>
+      <div class="cr">Assistant Professor, Center for Imaging Science</div>
+      <div class="co">Rochester Institute of Technology</div>
+    </div>
+  </div>
+
+  <!-- ── Honors ── -->
+  <h2 class="sec">Honors &amp; Awards</h2>
+  <ul class="slist">
     <li>Best of CES Award (2025) — NVIDIA Cosmos World Foundation Models</li>
     <li>CVPR 2019 Best Paper Finalist — Neural RGB→D Sensing</li>
     <li>CVPR 2018 Outstanding Reviewer</li>
@@ -684,11 +699,11 @@
   </ul>
 
   <!-- ── Service ── -->
-  <h2 class="section-title">Professional Service</h2>
+  <h2 class="sec">Professional Service</h2>
   <div class="two-col">
     <div>
       <p class="col-label">Editorial</p>
-      <ul class="simple-list">
+      <ul class="slist">
         <li>Associate Editor, IEEE TPAMI (2022–)</li>
         <li>Associate Editor, IEEE Trans. Computational Imaging (2019–)</li>
         <li>IEEE Senior Member (2018–)</li>
@@ -696,7 +711,7 @@
     </div>
     <div>
       <p class="col-label">Area Chair / Organizer</p>
-      <ul class="simple-list">
+      <ul class="slist">
         <li>Area Chair: CVPR, ICCV, ECCV, NeurIPS</li>
         <li>Industry Chair: ICCP 2020, 2023</li>
         <li>Organizing Chair: MIPI Workshop, RichMediaGAI Workshop</li>
