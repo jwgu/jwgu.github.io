@@ -10,102 +10,130 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --text: #1a1a1a; --muted: #555; --accent: #2563eb;
+      --text: #1a1a1a; --muted: #5a6270; --accent: #2563eb;
       --green: #059669; --purple: #7c3aed; --red: #dc2626;
       --orange: #d97706; --teal: #0891b2;
-      --border: #e5e7eb; --bg: #fff; --bg2: #f9fafb;
-      --nv: #76b900; --gap: 2.5rem;
+      --border: #e4e7ec; --bg: #fff; --bg2: #f8f9fb;
+      --shadow: 0 1px 3px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+      --nv: #76b900; --gap: 2.6rem;
     }
-    body { font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.65; color: var(--text); background: var(--bg); }
-    a { color: var(--accent); text-decoration: none; }
+    body { font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.68; color: var(--text); background: #f0f2f5; }
+    a { color: var(--accent); text-decoration: none; transition: color .15s; }
     a:hover { text-decoration: underline; }
-    .container { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* Page card */
+    .container {
+      max-width: 920px; margin: 0 auto; padding: 0 0 5rem;
+      background: var(--bg);
+      box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 8px 40px rgba(0,0,0,.10);
+    }
+    /* Green top accent bar */
+    .container::before {
+      content: ''; display: block; height: 4px;
+      background: linear-gradient(90deg, var(--nv) 0%, #a3d900 100%);
+    }
+    .inner { padding: 2.8rem 2.2rem 1rem; }
 
     /* ── Profile ── */
-    .profile { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: var(--gap); }
-    .profile-photo { flex-shrink: 0; width: 148px; height: 148px; border-radius: 50%; object-fit: cover; object-position: top; border: 3px solid var(--border); }
-    .profile-info h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
-    .profile-info .title { font-size: 0.93rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.5; }
-    .profile-info .bio-short { font-size: 0.915rem; max-width: 570px; }
-    .links-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
-    .links-row a { font-size: 0.78rem; font-weight: 500; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0.13rem 0.5rem; white-space: nowrap; }
-    .links-row a:hover { background: var(--accent); color: #fff; text-decoration: none; }
+    .profile { display: flex; gap: 2.4rem; align-items: flex-start; margin-bottom: var(--gap); }
+    .profile-photo {
+      flex-shrink: 0; width: 150px; height: 150px; border-radius: 50%;
+      object-fit: cover; object-position: top;
+      box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--border), var(--shadow);
+    }
+    .profile-info h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 0.25rem; }
+    .profile-info .title { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.85rem; line-height: 1.55; }
+    .profile-info .bio-short { font-size: 0.9rem; max-width: 580px; color: #2d3340; line-height: 1.7; }
+    .links-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    .links-row a {
+      font-size: 0.78rem; font-weight: 500; color: var(--accent);
+      border: 1px solid rgba(37,99,235,.35); border-radius: 5px;
+      padding: 0.16rem 0.6rem; white-space: nowrap;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .links-row a:hover { background: var(--accent); color: #fff; border-color: var(--accent); text-decoration: none; }
 
     /* ── Section heading ── */
-    .sec { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; margin: var(--gap) 0 1.2rem; }
+    .sec {
+      font-size: 0.71rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: 0.6rem;
+      margin: var(--gap) 0 1.25rem;
+    }
+    .sec::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
     /* ── Research pillars ── */
     .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .pillar { border-radius: 10px; padding: 1.2rem 1.4rem; color: #fff; }
-    .pillar.cosmos { background: linear-gradient(135deg, #0f172a, #1e3a5f); }
-    .pillar.imaging { background: linear-gradient(135deg, #1a3a2a, #0d4429); }
-    .pillar h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
-    .pillar p { font-size: 0.845rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+    .pillar { border-radius: 12px; padding: 1.3rem 1.5rem; color: #fff; box-shadow: var(--shadow); }
+    .pillar.cosmos { background: linear-gradient(135deg, #0f172a 0%, #1a3560 100%); }
+    .pillar.imaging { background: linear-gradient(135deg, #0d2e1f 0%, #0f4a2e 100%); }
+    .pillar h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .pillar p { font-size: 0.845rem; color: rgba(255,255,255,0.68); line-height: 1.55; }
 
     /* ── Cosmos journey timeline ── */
     .cosmos-banner {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-      border-radius: 10px; padding: 1.5rem 1.75rem; margin-bottom: 1.1rem;
+      background: linear-gradient(135deg, #0d1626 0%, #1a3560 100%);
+      border-radius: 12px; padding: 1.5rem 1.8rem; margin-bottom: 1.2rem;
       display: flex; gap: 1.5rem; align-items: flex-start;
+      box-shadow: var(--shadow);
     }
-    .cosmos-banner img { width: 140px; height: 88px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
-    .cosmos-banner .badge { display: inline-block; background: var(--nv); color: #000; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.1rem 0.5rem; border-radius: 3px; margin-bottom: 0.4rem; }
+    .cosmos-banner img { width: 144px; height: 90px; object-fit: cover; border-radius: 7px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.35); }
+    .cosmos-banner .badge { display: inline-block; background: var(--nv); color: #000; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.1rem 0.55rem; border-radius: 3px; margin-bottom: 0.45rem; }
     .cosmos-banner h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
-    .cosmos-banner p { font-size: 0.845rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0.6rem; }
-    .nv-links a { font-size: 0.78rem; color: var(--nv); border: 1px solid var(--nv); border-radius: 3px; padding: 0.08rem 0.42rem; margin-right: 0.35rem; display: inline-block; margin-bottom: 0.2rem; }
+    .cosmos-banner p { font-size: 0.84rem; color: #94a3b8; line-height: 1.55; margin-bottom: 0.65rem; }
+    .nv-links a { font-size: 0.78rem; color: var(--nv); border: 1px solid rgba(118,185,0,.5); border-radius: 4px; padding: 0.08rem 0.45rem; margin-right: 0.35rem; display: inline-block; margin-bottom: 0.25rem; transition: background .15s, color .15s; }
     .nv-links a:hover { background: var(--nv); color: #000; text-decoration: none; }
 
     /* journey pills */
-    .journey { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
-    .jpill { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 0.2rem 0.75rem; color: #e2e8f0; font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; }
-    .jpill .date { color: var(--nv); font-size: 0.7rem; font-weight: 600; }
+    .journey { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.3rem; }
+    .jpill { background: #1a2640; border: 1px solid #2d3f5a; border-radius: 20px; padding: 0.22rem 0.8rem; color: #dde5f0; font-size: 0.79rem; display: flex; align-items: center; gap: 0.38rem; }
+    .jpill .date { color: var(--nv); font-size: 0.69rem; font-weight: 700; }
 
     /* ── Product cards ── */
-    .product-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
-    .pcard { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
-    .pcard .icon { font-size: 1.3rem; margin-bottom: 0.35rem; }
-    .pcard .pname { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.18rem; }
-    .pcard .porg { font-size: 0.72rem; color: var(--orange); font-weight: 600; margin-bottom: 0.3rem; }
-    .pcard .pdesc { font-size: 0.815rem; color: var(--muted); line-height: 1.45; }
-    .pcard .pl { margin-top: 0.45rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
-    .pcard .pl a { font-size: 0.73rem; color: var(--accent); border: 1px solid var(--border); border-radius: 3px; padding: 0.06rem 0.38rem; }
+    .product-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.85rem; margin-bottom: 0.4rem; }
+    .pcard { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .2s; }
+    .pcard:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+    .pcard .icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .pcard .pname { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .pcard .porg { font-size: 0.71rem; color: var(--orange); font-weight: 600; margin-bottom: 0.32rem; }
+    .pcard .pdesc { font-size: 0.81rem; color: var(--muted); line-height: 1.48; }
+    .pcard .pl { margin-top: 0.5rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .pcard .pl a { font-size: 0.72rem; color: var(--accent); border: 1px solid var(--border); border-radius: 3px; padding: 0.06rem 0.4rem; transition: border-color .15s; }
     .pcard .pl a:hover { border-color: var(--accent); text-decoration: none; }
 
     /* ── Publications ── */
-    .yl { font-size: 0.75rem; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin: 1.4rem 0 0.7rem; }
-    .pubs { display: flex; flex-direction: column; gap: 0.95rem; }
-    .pub { display: flex; gap: 1.05rem; align-items: flex-start; }
-    .thumb { flex-shrink: 0; width: 106px; height: 66px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); background: var(--bg2); }
-    .blank { flex-shrink: 0; width: 106px; height: 66px; border-radius: 4px; border: 1px solid var(--border); background: var(--bg2); }
-    .pt { font-weight: 500; margin-bottom: 0.1rem; line-height: 1.38; font-size: 0.905rem; }
-    .pa { font-size: 0.81rem; color: var(--muted); margin-bottom: 0.07rem; }
-    .pv { font-size: 0.8rem; font-weight: 600; color: var(--green); }
+    .yl { font-size: 0.74rem; font-weight: 700; color: #8a94a6; letter-spacing: 0.07em; text-transform: uppercase; margin: 1.5rem 0 0.75rem; }
+    .pubs { display: flex; flex-direction: column; gap: 0.9rem; }
+    .pub { display: flex; gap: 1.1rem; align-items: flex-start; padding: 0.6rem 0.55rem; border-radius: 8px; transition: background .15s; }
+    .pub:hover { background: var(--bg2); }
+    .thumb { flex-shrink: 0; width: 108px; height: 68px; object-fit: cover; border-radius: 5px; border: 1px solid var(--border); background: var(--bg2); }
+    .blank { flex-shrink: 0; width: 108px; height: 68px; border-radius: 5px; border: 1px solid var(--border); background: var(--bg2); }
+    .pt { font-weight: 500; margin-bottom: 0.12rem; line-height: 1.4; font-size: 0.9rem; }
+    .pa { font-size: 0.805rem; color: var(--muted); margin-bottom: 0.08rem; }
+    .pv { font-size: 0.79rem; font-weight: 600; color: var(--green); }
     .pv.top { color: var(--purple); }
     .pv .hl { color: var(--red); font-weight: 400; }
-    .pl2 { margin-top: 0.22rem; display: flex; gap: 0.32rem; flex-wrap: wrap; }
-    .pl2 a { font-size: 0.73rem; color: var(--muted); border: 1px solid var(--border); border-radius: 3px; padding: 0.05rem 0.36rem; }
+    .pl2 { margin-top: 0.25rem; display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .pl2 a { font-size: 0.72rem; color: var(--muted); border: 1px solid var(--border); border-radius: 3px; padding: 0.05rem 0.38rem; transition: color .15s, border-color .15s; }
     .pl2 a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
-    /* ── Career ── */
-    .career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-    .citem { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 0.9rem; }
-    .citem .cp { font-size: 0.71rem; color: var(--muted); font-weight: 500; }
-    .citem .cr { font-size: 0.87rem; font-weight: 600; }
-    .citem .co { font-size: 0.81rem; color: var(--accent); }
 
     /* ── Awards / Service ── */
-    .slist { list-style: none; display: flex; flex-direction: column; gap: 0.28rem; font-size: 0.87rem; color: var(--muted); }
-    .slist li::before { content: '–'; margin-right: 0.42rem; color: #ccc; }
+    .slist { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.86rem; color: var(--muted); }
+    .slist li { padding-left: 1rem; position: relative; }
+    .slist li::before { content: '›'; position: absolute; left: 0; color: #bcc3ce; font-weight: 600; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .col-label { font-size: 0.76rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .45rem; }
+    .col-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
 
     /* ── Responsive ── */
     @media (max-width: 680px) {
+      .inner { padding: 1.8rem 1.1rem 0.5rem; }
       .profile { flex-direction: column; align-items: center; text-align: center; }
       .links-row { justify-content: center; }
       .pub { flex-direction: column; }
       .thumb, .blank { width: 100%; height: 110px; }
-      .career-grid, .two-col, .product-grid, .pillars { grid-template-columns: 1fr; }
+      .two-col, .product-grid, .pillars { grid-template-columns: 1fr; }
       .cosmos-banner { flex-direction: column; }
       .cosmos-banner img { width: 100%; height: 120px; }
     }
@@ -113,6 +141,7 @@
 </head>
 <body>
 <div class="container">
+<div class="inner">
 
   <!-- ── Profile ── -->
   <div class="profile">
@@ -120,16 +149,16 @@
     <div class="profile-info">
       <h1>Jinwei Gu</h1>
       <p class="title">
-        Principal Research Scientist &amp; Tech Lead · <a href="https://research.nvidia.com/labs/lpr/">NVIDIA Research</a><br>
+        Principal Research Scientist &amp; Senior Manager · <a href="https://research.nvidia.com/labs/lpr/">NVIDIA Research</a><br>
         Adjunct Associate Professor · <a href="https://www.cse.cuhk.edu.hk/people/faculty/jinwei-gu/">CUHK CSE</a>
       </p>
       <p class="bio-short">
-        Currently a Principal Research Scientist &amp; Tech Lead at <a href="https://research.nvidia.com/">NVIDIA Research</a>
+        Currently a Principal Research Scientist &amp; Senior Manager at <a href="https://research.nvidia.com/">NVIDIA Research</a>
         and Adjunct Associate Professor at <a href="https://www.cse.cuhk.edu.hk/people/faculty/jinwei-gu/">CUHK CSE</a>.
         He is one of the core contributors and tech leads of <a href="https://research.nvidia.com/labs/cosmos/">NVIDIA Cosmos</a> (Best of CES 2025).
         Previously R&amp;D Executive Director at SenseBrain, co-developing AI imaging sensors with SONY for flagship smartphones;
         Senior Research Scientist at NVIDIA (2015–2018); and Assistant Professor at <a href="https://www.rit.edu/science/chester-f-carlson-center-imaging-science">RIT</a> (2010–2013).
-        Associate Editor, IEEE TCI &amp; TPAMI. Ph.D. Columbia University; B.S. &amp; M.S. Tsinghua University.
+        Associate Editor, IEEE TCI (2019–2022) &amp; IEEE TPAMI (2022–). Ph.D. Columbia University; B.S. &amp; M.S. Tsinghua University.
       </p>
       <div class="links-row">
         <a href="https://scholar.google.com/citations?user=k_T8t30AAAAJ&hl=en">Google Scholar</a>
@@ -221,7 +250,10 @@
         <div class="pv top">arXiv 2511.00062 · Oct 2025</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2511.00062">Paper</a>
-          <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
+          <a href="https://research.nvidia.com/labs/dir/cosmos-predict2.5/">Project (Predict2.5)</a>
+          <a href="https://research.nvidia.com/labs/dir/cosmos-transfer2.5/">Project (Transfer2.5)</a>
+          <a href="https://github.com/nvidia-cosmos/cosmos-predict2.5">Code (Predict2.5)</a>
+          <a href="https://github.com/nvidia-cosmos/cosmos-transfer2.5">Code (Transfer2.5)</a>
         </div>
       </div>
     </div>
@@ -235,6 +267,7 @@
         <div class="pl2">
           <a href="https://arxiv.org/abs/2601.16163">Paper</a>
           <a href="https://research.nvidia.com/labs/dir/cosmos-policy/">Project</a>
+          <a href="https://github.com/NVlabs/cosmos-policy">Code</a>
         </div>
       </div>
     </div>
@@ -247,7 +280,8 @@
         <div class="pv top">arXiv 2503.14492 · Mar 2025</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2503.14492">Paper</a>
-          <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
+          <a href="https://research.nvidia.com/labs/dir/cosmos-transfer1/">Project</a>
+          <a href="https://github.com/nvidia-cosmos/cosmos-transfer1">Code</a>
         </div>
       </div>
     </div>
@@ -260,7 +294,8 @@
         <div class="pv top">arXiv 2503.15558 · Mar 2025</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2503.15558">Paper</a>
-          <a href="https://github.com/NVIDIA/Cosmos">GitHub</a>
+          <a href="https://research.nvidia.com/labs/dir/cosmos-reason1/">Project</a>
+          <a href="https://github.com/nvidia-cosmos/cosmos-reason1">Code</a>
         </div>
       </div>
     </div>
@@ -288,6 +323,8 @@
         <div class="pv top">arXiv 2602.06949 · Feb 2026</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2602.06949">Paper</a>
+          <a href="https://dreamdojo-world.github.io/">Project</a>
+          <a href="https://github.com/NVIDIA/DreamDojo">Code</a>
         </div>
       </div>
     </div>
@@ -312,6 +349,7 @@
         <div class="pv top">CVPR 2026</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2601.05239">Paper</a>
+          <a href="https://research.nvidia.com/labs/dir/plenopticdreamer/">Project</a>
         </div>
       </div>
     </div>
@@ -376,7 +414,11 @@
         <div class="pt">PolarFree: Polarization-based Reflection-free Imaging</div>
         <div class="pa">Mingde Yao, Menglu Wang, King Man Tam, Lingen Li, Tianfan Xue, <strong>Jinwei Gu</strong></div>
         <div class="pv top">CVPR 2025</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2503.18055">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2503.18055">Paper</a>
+          <a href="https://mdyao.github.io/PolarFree/">Project</a>
+          <a href="https://github.com/mdyao/PolarFree">Code</a>
+        </div>
       </div>
     </div>
     <div class="pub">
@@ -385,7 +427,10 @@
         <div class="pt">A Physics-Informed Blur Learning Framework for Imaging Systems</div>
         <div class="pa">Liqun Chen, Yuxuan Li, Jun Dai, <strong>Jinwei Gu</strong>, Tianfan Xue</div>
         <div class="pv top">CVPR 2025</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2502.11382">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2502.11382">Paper</a>
+          <a href="https://github.com/OpenImagingLab/PSF-Estimation">Code</a>
+        </div>
       </div>
     </div>
     <div class="pub">
@@ -394,7 +439,11 @@
         <div class="pt">4DSloMo: 4D Reconstruction for High-Speed Scenes with Asynchronous Capture</div>
         <div class="pa">Yutian Chen, Shi Guo, Tianshuo Yang, Lihe Ding, Xiuyuan Yu, <strong>Jinwei Gu</strong>, Tianfan Xue</div>
         <div class="pv top">SIGGRAPH Asia 2025</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2507.05163">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2507.05163">Paper</a>
+          <a href="https://openimaginglab.github.io/4DSloMo/">Project</a>
+          <a href="https://github.com/OpenImagingLab/4DSloMo">Code</a>
+        </div>
       </div>
     </div>
     <div class="pub">
@@ -403,7 +452,10 @@
         <div class="pt">Uni-ISP: Toward Unifying the Learning of ISPs from Multiple Mobile Cameras</div>
         <div class="pa">Lingen Li, Mingde Yao, Xingyu Meng, Muquan Yu, Tianfan Xue, <strong>Jinwei Gu</strong></div>
         <div class="pv">IEEE Transactions on Image Processing, 2025</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2406.01003">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2406.01003">Paper</a>
+          <a href="https://lg-li.github.io/project/uni-isp/">Project</a>
+        </div>
       </div>
     </div>
     <div class="pub">
@@ -412,7 +464,10 @@
         <div class="pt">Tolerance-Aware Deep Optics</div>
         <div class="pa">Jun Dai, Liqun Chen, Xinge Yang, Yuyao Hu, <strong>Jinwei Gu</strong>, Tianfan Xue</div>
         <div class="pv">arXiv, 2025</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2502.04719">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2502.04719">Paper</a>
+          <a href="https://openimaginglab.github.io/LensTolerance/">Project</a>
+        </div>
       </div>
     </div>
   </div>
@@ -507,7 +562,11 @@
         <div class="pt">Learning Image-Adaptive Codebooks for Class-Agnostic Image Restoration</div>
         <div class="pa">Kechun Liu, Yitong Jiang, Inchang Choi, <strong>Jinwei Gu</strong></div>
         <div class="pv top">ICCV 2023</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2306.06513">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2306.06513">Paper</a>
+          <a href="https://kechunl.github.io/AdaCode/">Project</a>
+          <a href="https://github.com/kechunl/AdaCode">Code</a>
+        </div>
       </div>
     </div>
     <div class="pub">
@@ -516,11 +575,14 @@
         <div class="pt">Real-time Controllable Denoising for Image and Video</div>
         <div class="pa">Zhaoyang Zhang, Yitong Jiang, Wenqi Shao, Xiaogang Wang, Ping Luo, Kaimo Lin, <strong>Jinwei Gu</strong></div>
         <div class="pv top">CVPR 2023</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2303.16425">Paper</a></div>
+        <div class="pl2">
+          <a href="https://arxiv.org/abs/2303.16425">Paper</a>
+          <a href="https://github.com/jiangyitong/RCD">Code</a>
+        </div>
       </div>
     </div>
     <div class="pub">
-      <div class="blank"></div>
+      <img class="thumb" src="img/alignformer.png" alt="">
       <div>
         <div class="pt">Generating Aligned Pseudo-Supervision from Non-Aligned Data for Image Restoration in Under-Display Camera</div>
         <div class="pa">Ruicheng Feng, Chongyi Li, Huaijin Chen, Shuai Li, <strong>Jinwei Gu</strong>, Chen Change Loy</div>
@@ -541,7 +603,10 @@
         <div class="pt">Deep Fourier Up-Sampling</div>
         <div class="pa">Man Zhou, Yu Hu, Jie Huang, Feng Zhao, <strong>Jinwei Gu</strong>, Chen Change Loy, Deyu Meng, Chongyi Li</div>
         <div class="pv top">NeurIPS 2022</div>
-        <div class="pl2"><a href="https://li-chongyi.github.io/FourierUp_files/">Project</a></div>
+        <div class="pl2">
+          <a href="https://li-chongyi.github.io/FourierUp_files/">Project</a>
+          <a href="https://github.com/manman1995/Deep-Fourier-Upsampling">Code</a>
+        </div>
       </div>
     </div>
     <div class="pub">
@@ -607,6 +672,8 @@
         <div class="pv top">CVPR 2026</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2603.04291">Paper</a>
+          <a href="https://lg-li.github.io/project/cubecomposer">Project</a>
+          <a href="https://github.com/TencentARC/CubeComposer">Code</a>
         </div>
       </div>
     </div>
@@ -618,6 +685,8 @@
         <div class="pv top">ICLR 2026</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2508.10881">Paper</a>
+          <a href="https://lg-li.github.io/project/tooncomposer">Project</a>
+          <a href="https://github.com/TencentARC/ToonComposer">Code</a>
         </div>
       </div>
     </div>
@@ -672,6 +741,8 @@
         <div class="pv top">NeurIPS 2025</div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/2512.07884">Paper</a>
+          <a href="https://whj363636.github.io/GSPN2/">Project</a>
+          <a href="https://github.com/NVlabs/GSPN">Code</a>
         </div>
       </div>
     </div>
@@ -687,6 +758,7 @@
         <div class="pv top">CVPR 2019 <span class="hl">(Oral · Best Paper Finalist)</span></div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/1901.02571">Paper</a>
+          <a href="https://research.nvidia.com/publication/2019-06_neural-rgb-d-sensing-depth-and-uncertainty-video-camera">Project</a>
           <a href="https://github.com/NVlabs/neuralrgbd">Code</a>
         </div>
       </div>
@@ -699,6 +771,7 @@
         <div class="pv top">CVPR 2019 <span class="hl">(Oral)</span></div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/1812.04072">Paper</a>
+          <a href="https://research.nvidia.com/publication/2019-06_planercnn-3d-plane-detection-and-reconstruction-single-image">Project</a>
           <a href="https://github.com/NVlabs/planercnn">Code</a>
         </div>
       </div>
@@ -711,44 +784,10 @@
         <div class="pv top">CVPR 2018 <span class="hl">(Spotlight)</span></div>
         <div class="pl2">
           <a href="https://arxiv.org/abs/1712.03342">Paper</a>
+          <a href="https://research.nvidia.com/publication/2018-06_geometry-aware-learning-maps-camera-localization">Project</a>
           <a href="https://github.com/NVlabs/geomapnet">Code</a>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ── Career ── -->
-  <h2 class="sec">Career</h2>
-  <div class="career-grid">
-    <div class="citem">
-      <div class="cp">2024 – present</div>
-      <div class="cr">Principal Research Scientist &amp; Tech Lead</div>
-      <div class="co"><a href="https://research.nvidia.com/">NVIDIA Research</a></div>
-    </div>
-    <div class="citem">
-      <div class="cp">2023 – present</div>
-      <div class="cr">Adjunct Associate Professor</div>
-      <div class="co"><a href="https://www.cse.cuhk.edu.hk/">CUHK — CSE</a></div>
-    </div>
-    <div class="citem">
-      <div class="cp">2018 – 2023</div>
-      <div class="cr">R&amp;D Executive Director</div>
-      <div class="co">SenseBrain Technology (SenseTime Research USA)</div>
-    </div>
-    <div class="citem">
-      <div class="cp">2015 – 2018</div>
-      <div class="cr">Senior Research Scientist</div>
-      <div class="co"><a href="https://research.nvidia.com/">NVIDIA Research</a></div>
-    </div>
-    <div class="citem">
-      <div class="cp">2013 – 2015</div>
-      <div class="cr">Senior Research Scientist</div>
-      <div class="co">Futurewei Technologies (America Media Lab)</div>
-    </div>
-    <div class="citem">
-      <div class="cp">2010 – 2013</div>
-      <div class="cr">Assistant Professor, Center for Imaging Science</div>
-      <div class="co">Rochester Institute of Technology</div>
     </div>
   </div>
 
@@ -771,7 +810,7 @@
       <p class="col-label">Editorial</p>
       <ul class="slist">
         <li>Associate Editor, IEEE TPAMI (2022–)</li>
-        <li>Associate Editor, IEEE Trans. Computational Imaging (2019–)</li>
+        <li>Associate Editor, IEEE Trans. Computational Imaging (2019–2022)</li>
         <li>IEEE Senior Member (2018–)</li>
       </ul>
     </div>
@@ -785,6 +824,7 @@
     </div>
   </div>
 
-</div>
+</div><!-- /.inner -->
+</div><!-- /.container -->
 </body>
 </html>
