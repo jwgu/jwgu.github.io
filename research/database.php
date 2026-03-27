@@ -1,5 +1,5 @@
 <?php
-include_once "/proj/cave/backup/html/pubadmin/db_connect.php";
+// include_once "/proj/cave/backup/html/pubadmin/db_connect.php"; // legacy path removed
 /* Generic functions to use for all projects
    Created by Neeraj Kumar, December 5, 2007.
 */
