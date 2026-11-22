@@ -118,6 +118,7 @@
     .pub { display: flex; gap: 1.1rem; align-items: flex-start; padding: 0.6rem 0.55rem; border-radius: 8px; transition: background .15s; }
     .pub:hover { background: var(--bg2); }
     .thumb { flex-shrink: 0; width: 108px; height: 68px; object-fit: cover; border-radius: 5px; border: 1px solid var(--border); background: var(--bg2); }
+    .thumb.wide { object-fit: contain; background: #fff; }
     .blank { flex-shrink: 0; width: 108px; height: 68px; border-radius: 5px; border: 1px solid var(--border); background: var(--bg2); }
     .pt { font-weight: 500; margin-bottom: 0.12rem; line-height: 1.4; font-size: 0.9rem; }
     .pa { font-size: 0.805rem; color: var(--muted); margin-bottom: 0.08rem; }
@@ -262,12 +263,12 @@
     </div>
 
     <div class="pub">
-      <div class="blank" aria-hidden="true"></div>
+      <img class="thumb wide" src="img/sc3_eval.png" alt="SC3-Eval self-consistent video generation overview">
       <div>
         <div class="pt">SC3-Eval: Evaluating Robot Foundation Models via Self-Consistent Video Generation</div>
         <div class="pa">Wei-Cheng Tseng, Gashon Hussein, Yuzhu Dong, Allen Z. Ren, Lucy X. Shi, XuDong Wang, Sergey Levine, Zhaoshuo Li, <strong>Jinwei Gu</strong>, Florian Shkurti, Ming-Yu Liu, Quan Vuong</div>
         <div class="pv top">arXiv 2606.18610 &middot; Jun 2026</div>
-        <div class="pl2"><a href="https://arxiv.org/abs/2606.18610">Paper</a></div>
+        <div class="pl2"><a href="https://arxiv.org/abs/2606.18610">Paper</a><a href="https://weichengtseng.github.io/sc3-eval/">Project</a></div>
       </div>
     </div>
 
